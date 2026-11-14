@@ -5,7 +5,7 @@ import { ShieldCheck } from 'lucide-react';
 
 export const Masthead: React.FC = () => {
   return (
-    <header className="bg-paper-white border-b border-ink-black/15 select-none relative shadow-sm">
+    <header className="bg-paper-warm border-b border-ink-black/15 select-none relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Newspaper Center Masthead Wordmark */}

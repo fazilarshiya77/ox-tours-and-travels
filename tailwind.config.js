@@ -8,11 +8,11 @@ export default {
     extend: {
       colors: {
         paper: {
-          warm: '#F7F6F3',
-          white: '#FFFFFF',
-          aged: '#EAE7E1',
-          tan: '#E3DFD7',
-          rule: '#E0DDD5',
+          warm: '#F5F0E6',
+          white: '#FAF7F0',
+          aged: '#ECE4D4',
+          tan: '#DFD5C2',
+          rule: '#D6CCB8',
         },
         ink: {
           black: '#0A0A0A',

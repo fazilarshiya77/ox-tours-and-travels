@@ -36,21 +36,21 @@ export const HeroCoverStory: React.FC = () => {
           </div>
         </div>
 
-        {/* Hero Showcase Image with Black & White Glossy Treatment */}
-        <div className="relative rounded-lg overflow-hidden border border-ink-black/25 shadow-glossy-lg bg-black glass-reflection group">
+        {/* Hero Showcase Image */}
+        <div className="relative rounded-lg overflow-hidden border border-ink-black/25 shadow-lg bg-black/10 group">
           <div className="aspect-[21/9] sm:aspect-[2.4/1] w-full overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop"
-              alt="Luxury scenic highway road trip - Ox Tours and Travels"
-              className="w-full h-full object-cover bw-gloss-img"
+              src="/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg"
+              alt="Force Urbania High-Ceiling Walkthrough - Ox Tours and Travels Fleet"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
 
-          {/* Sleek High-Gloss Translucent Caption Strip */}
+          {/* Sleek Translucent Caption Strip */}
           <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 bg-black/85 backdrop-blur-md border border-white/20 text-white px-5 py-2.5 rounded-sm shadow-xl text-xs font-sans flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span>
-              <strong className="tracking-wider uppercase font-mono">OX TOURS & TRAVELS</strong> — Chauffeured excellence across national highways.
+              <strong className="tracking-wider uppercase font-mono">OX TOURS & TRAVELS</strong> — Force Urbania & Luxury Fleet on National Highways.
             </span>
           </div>
         </div>

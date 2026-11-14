@@ -116,13 +116,13 @@ export const VehicleDetailPage: React.FC = () => {
           {/* Left Column: Visual Gallery & Specs (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
             
-            {/* Gallery Frame with Black & White Glossy Treatment */}
+            {/* Gallery Frame */}
             <div className="glossy-card rounded-lg p-3 shadow-sm">
-              <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-black glass-reflection">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-black/5">
                 <img
                   src={galleryImages[activeImageIndex]}
                   alt={`${vehicle.name} view ${activeImageIndex + 1}`}
-                  className="w-full h-full object-cover bw-gloss-img"
+                  className="w-full h-full object-cover"
                 />
 
                 <button
@@ -143,13 +143,13 @@ export const VehicleDetailPage: React.FC = () => {
                       key={idx}
                       type="button"
                       onClick={() => setActiveImageIndex(idx)}
-                      className={`relative aspect-[16/10] overflow-hidden rounded-sm border-2 transition-all bg-black ${
+                      className={`relative aspect-[16/10] overflow-hidden rounded-sm border-2 transition-all bg-black/5 ${
                         activeImageIndex === idx 
                           ? 'border-black opacity-100 shadow-sm' 
-                          : 'border-ink-black/15 opacity-60 hover:opacity-100'
+                          : 'border-ink-black/15 opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover bw-gloss-img" />
+                      <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                     </button>
                   ))}
                 </div>

@@ -13,12 +13,12 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onEnquire }) 
   return (
     <article className="glossy-card rounded-lg overflow-hidden flex flex-col justify-between group">
       <div>
-        {/* Vehicle Image Container with Black & White Glossy Treatment */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-black glass-reflection">
+        {/* Vehicle Image Container */}
+        <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
           <img
             src={vehicle.images.main}
             alt={vehicle.images.alt}
-            className="w-full h-full object-cover bw-gloss-img"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
           />
 

@@ -65,14 +65,10 @@ f:\ox tours and travels\
 │   │   │   ├── FleetFilterBar.tsx    # Category pills, keyword search, capacity & sort dropdowns
 │   │   │   └── VehicleCard.tsx       # Automotive magazine card with capacity pills & CTAs
 │   │   ├── home/
-│   │   │   ├── FeaturedDestinations.tsx # 3-column travel magazine cards with distance guides
 │   │   │   ├── FeaturedFleet.tsx     # Editorial fleet showcase with category classifications
-│   │   │   ├── FinalCTA.tsx          # High-impact closing dispatch with call & booking CTAs
+│   │   │   ├── GalleryTeaser.tsx     # 4-Item visual gallery preview linking to /gallery
 │   │   │   ├── HeroCoverStory.tsx    # Broadsheet front-page lead with headline & 3-pillar trust bar
-│   │   │   ├── QuickBookingBar.tsx   # Fast 3-mode journey requisition card (Outstation, Local, Airport)
-│   │   │   ├── ServicesOverview.tsx  # Grid of 6 core travel services with benefit checklists
-│   │   │   ├── Testimonials.tsx      # Dispatch correspondence and sample customer quotes
-│   │   │   └── WhyChooseUs.tsx       # 4 foundational editorial pillars with minimalist line icons
+│   │   │   └── QuickBookingBar.tsx   # Fast 3-mode journey requisition card (Outstation, Local, Airport)
 │   │   ├── layout/
 │   │   │   ├── Footer.tsx            # Newspaper colophon, directory links, and dispatch contacts
 │   │   │   ├── Masthead.tsx          # Grand broadsheet masthead with date, volume, and taglines
@@ -123,10 +119,10 @@ Routing is managed via `react-router-dom` in [`src/App.tsx`](file:///f:/ox%20tou
 
 | URL Path | Component | Purpose & Features |
 |---|---|---|
-| `/` | `HomePage` | The front page cover story, quick booking bar, 8-vehicle fleet showcase, trust manifesto, latest visual gallery dispatches, verified traveler feedback, and final call-to-action. |
+| `/` | `HomePage` | The front page cover story, quick booking bar, 8-vehicle fleet showcase, and latest visual gallery dispatches. |
 | `/fleet` | `FleetPage` | Interactive vehicle directory with category filtering, live search, passenger capacity filters (Up to 7, 8–12, 13–17, 18+), and sorting options. |
 | `/fleet/:id` | `VehicleDetailPage` | In-depth technical dossier for a specific vehicle by ID (`innova-crysta`, `tempo-traveller-9-seater`, `tempo-traveller-12-seater-luxury`, `tempo-traveller-17-seater`, `luxury-bus-21-seater`, `force-urbania-9-seater-luxury`, `force-urbania-12-seater-luxury`, `force-urbania-16-seater-luxury`). Includes image gallery, fullscreen lightbox, full mechanical specs, cabin amenities, and direct enquiry form. |
-| `/gallery` | `GalleryPage` | Curated monochrome photographic retrospective with collection filters (Force Urbania, Tempo Traveller, Innova Crysta, Luxury Bus, Cabin & Interiors), search, and interactive fullscreen lightbox. |
+| `/gallery` | `GalleryPage` | Curated full-color photographic retrospective of the authentic fleet with collection filters (Force Urbania, Tempo Traveller, Innova Crysta, Luxury Bus, Cabin & Interiors), search, and interactive fullscreen lightbox. |
 | `/about` | `AboutPage` | Brand storytelling in a two-column broadsheet format with drop caps, core philosophy pull quotes, and the Six Pillars of the Ox travel approach. |
 | `/contact` | `ContactPage` | Telegram-styled inquiry form with real-time field validation, operational office details, direct WhatsApp CTA, FAQs, and a styled map canvas placeholder. |
 | `/book` | `BookPage` | 4-Stage journey requisition wizard (Route -> Vehicle -> Traveler -> Review) culminating in a printable travel dispatch voucher. Accepts pre-filled route state from `QuickBookingBar` and `VehicleDetailPage`. |

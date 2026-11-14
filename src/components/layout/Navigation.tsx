@@ -33,8 +33,8 @@ export const Navigation: React.FC = () => {
       <nav 
         className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-white/90 backdrop-blur-md shadow-glossy border-ink-black/15 py-3' 
-            : 'bg-paper-white/95 backdrop-blur-sm border-ink-black/10 py-3'
+            ? 'bg-paper-warm/95 backdrop-blur-md shadow-sm border-ink-black/15 py-3' 
+            : 'bg-paper-warm/90 backdrop-blur-sm border-ink-black/10 py-3'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
