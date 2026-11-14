@@ -3,8 +3,7 @@ import { HeroCoverStory } from '../components/home/HeroCoverStory';
 import { QuickBookingBar } from '../components/home/QuickBookingBar';
 import { FeaturedFleet } from '../components/home/FeaturedFleet';
 import { WhyChooseUs } from '../components/home/WhyChooseUs';
-import { FeaturedDestinations } from '../components/home/FeaturedDestinations';
-import { ServicesOverview } from '../components/home/ServicesOverview';
+import { GalleryTeaser } from '../components/home/GalleryTeaser';
 import { Testimonials } from '../components/home/Testimonials';
 import { FinalCTA } from '../components/home/FinalCTA';
 
@@ -23,11 +22,8 @@ export const HomePage: React.FC = () => {
       {/* Why Choose Us: Editorial Manifesto */}
       <WhyChooseUs />
 
-      {/* Featured Destinations */}
-      <FeaturedDestinations />
-
-      {/* Travel Services */}
-      <ServicesOverview />
+      {/* Latest Visual Gallery Dispatches */}
+      <GalleryTeaser />
 
       {/* Passenger Testimonial Dispatches */}
       <Testimonials />

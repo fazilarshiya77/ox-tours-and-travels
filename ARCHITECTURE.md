@@ -123,11 +123,10 @@ Routing is managed via `react-router-dom` in [`src/App.tsx`](file:///f:/ox%20tou
 
 | URL Path | Component | Purpose & Features |
 |---|---|---|
-| `/` | `HomePage` | The front page cover story, quick booking bar, fleet preview, trust manifesto, destinations, services, testimonials, and final call-to-action. |
+| `/` | `HomePage` | The front page cover story, quick booking bar, 8-vehicle fleet showcase, trust manifesto, latest visual gallery dispatches, verified traveler feedback, and final call-to-action. |
 | `/fleet` | `FleetPage` | Interactive vehicle directory with category filtering, live search, passenger capacity filters (Up to 7, 8–12, 13–17, 18+), and sorting options. |
 | `/fleet/:id` | `VehicleDetailPage` | In-depth technical dossier for a specific vehicle by ID (`innova-crysta`, `tempo-traveller-9-seater`, `tempo-traveller-12-seater-luxury`, `tempo-traveller-17-seater`, `luxury-bus-21-seater`, `force-urbania-9-seater-luxury`, `force-urbania-12-seater-luxury`, `force-urbania-16-seater-luxury`). Includes image gallery, fullscreen lightbox, full mechanical specs, cabin amenities, and direct enquiry form. |
-| `/services` | `ServicesPage` | Alternating image-and-text editorial magazine layout detailing all 7 transit tiers with benefits, inclusions, and direct booking links. |
-| `/destinations` | `DestinationsPage` | Travel discovery guide categorized by topography (Hill Station, Heritage, Coastal, Wildlife, Pilgrimage) with interactive photo lightboxes and route advice. |
+| `/gallery` | `GalleryPage` | Curated monochrome photographic retrospective with collection filters (Force Urbania, Tempo Traveller, Innova Crysta, Luxury Bus, Cabin & Interiors), search, and interactive fullscreen lightbox. |
 | `/about` | `AboutPage` | Brand storytelling in a two-column broadsheet format with drop caps, core philosophy pull quotes, and the Six Pillars of the Ox travel approach. |
 | `/contact` | `ContactPage` | Telegram-styled inquiry form with real-time field validation, operational office details, direct WhatsApp CTA, FAQs, and a styled map canvas placeholder. |
 | `/book` | `BookPage` | 4-Stage journey requisition wizard (Route -> Vehicle -> Traveler -> Review) culminating in a printable travel dispatch voucher. Accepts pre-filled route state from `QuickBookingBar` and `VehicleDetailPage`. |

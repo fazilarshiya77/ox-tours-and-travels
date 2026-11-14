@@ -8,8 +8,7 @@ import { WhatsAppButton } from './components/ui/WhatsAppButton';
 import { HomePage } from './pages/HomePage';
 import { FleetPage } from './pages/FleetPage';
 import { VehicleDetailPage } from './pages/VehicleDetailPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { DestinationsPage } from './pages/DestinationsPage';
+import { GalleryPage } from './pages/GalleryPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { BookPage } from './pages/BookPage';
@@ -56,8 +55,7 @@ export const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/fleet" element={<FleetPage />} />
             <Route path="/fleet/:id" element={<VehicleDetailPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/destinations" element={<DestinationsPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/book" element={<BookPage />} />

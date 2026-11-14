@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../../data/siteConfig';
-import { SERVICES_DATA } from '../../data/servicesData';
+import { FLEET_DATA } from '../../data/fleetData';
 import { 
   ArrowUpRight, 
   Phone, 
@@ -23,9 +23,9 @@ export const Footer: React.FC = () => {
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Colophon */}
+          {/* Brand Col */}
           <div className="lg:col-span-5 space-y-4">
-            <h2 className="text-3xl font-serif font-black uppercase tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-white uppercase">
               {SITE_CONFIG.brandName}
             </h2>
             <p className="font-serif italic text-paper-aged text-base">
@@ -64,13 +64,8 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition-colors inline-block py-0.5">
-                  Travel Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/destinations" className="hover:text-white transition-colors inline-block py-0.5">
-                  Destinations
+                <Link to="/gallery" className="hover:text-white transition-colors inline-block py-0.5">
+                  Visual Gallery
                 </Link>
               </li>
               <li>
@@ -92,16 +87,16 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Services Column */}
+          {/* Fleet Column */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-white border-b border-white/15 pb-2">
-              SERVICES
+              THE FLEET
             </h4>
             <ul className="space-y-2 text-xs text-ink-light">
-              {SERVICES_DATA.slice(0, 6).map((service) => (
-                <li key={service.id}>
-                  <Link to="/services" className="hover:text-white transition-colors block py-0.5 truncate">
-                    {service.title.split('&')[0]}
+              {FLEET_DATA.slice(0, 6).map((vehicle) => (
+                <li key={vehicle.id}>
+                  <Link to={`/fleet/${vehicle.id}`} className="hover:text-white transition-colors block py-0.5 truncate">
+                    {vehicle.name}
                   </Link>
                 </li>
               ))}
@@ -139,39 +134,33 @@ export const Footer: React.FC = () => {
                 <Clock className="w-3.5 h-3.5 text-ink-muted shrink-0 mt-0.5" />
                 <span>{SITE_CONFIG.contact.workingHours}</span>
               </div>
+            </div>
 
-              <div className="pt-2">
-                <a
-                  href={SITE_CONFIG.socialLinks.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glossy-btn-white inline-flex items-center gap-2 px-3.5 py-2 text-xs font-mono uppercase tracking-wider rounded-sm"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-800" />
-                  <span>Direct WhatsApp Desk</span>
-                </a>
-              </div>
+            {/* Quick WhatsApp Shortcut */}
+            <div className="pt-2">
+              <a
+                href={SITE_CONFIG.socialLinks.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-white/10 hover:bg-white text-white hover:text-black transition-colors text-xs font-mono font-bold uppercase tracking-wider border border-white/20"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-white group-hover:text-black" />
+                <span>WHATSAPP DISPATCH</span>
+              </a>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-ink-muted gap-4">
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-            <span>© {currentYear} {SITE_CONFIG.brandName}.</span>
-            <span>•</span>
-            <span>All Rights Reserved.</span>
-            <span>•</span>
-            <span className="text-ink-light italic">Black & White Glossy Editorial Design</span>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-ink-muted gap-4 font-mono">
+          <div>
+            © {currentYear} {SITE_CONFIG.brandName}. All Rights Reserved. Editorial Travel Gazette.
           </div>
-
-          <div className="flex items-center gap-4 text-[11px] uppercase tracking-wider text-ink-light">
-            <span>Privacy Policy</span>
+          <div className="flex gap-4">
+            <span>CHAUFFEUR DRIVEN AUTOMOBILE HIRE</span>
             <span>•</span>
-            <span>Terms of Carriage</span>
-            <span>•</span>
-            <span>Fleet Tariff Notice</span>
+            <span>NATIONAL & INTERSTATE TRANSIT</span>
           </div>
         </div>
 
