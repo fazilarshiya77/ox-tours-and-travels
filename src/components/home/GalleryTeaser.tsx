@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Camera } from 'lucide-react';
+import { ArrowUpRight, Camera, Maximize2 } from 'lucide-react';
 import { GALLERY_DATA } from '../../data/galleryData';
 import { EditorialSectionHeader } from '../ui/EditorialSectionHeader';
 import { Button } from '../ui/Button';
@@ -14,9 +14,9 @@ export const GalleryTeaser: React.FC = () => {
         
         {/* Section Header */}
         <EditorialSectionHeader
-          label="LATEST VISUAL DISPATCHES"
+          label="LATEST VISUAL ARCHIVES"
           title="THE ROAD CHRONICLE IN PICTURES"
-          subtitle="Recent photographic archives from our highway circuits, VIP cabin appointments, and touring expeditions."
+          subtitle="Recent photographic dispatches from our luxury touring machines, executive interiors, and expeditions."
           number="03"
         />
 
@@ -26,40 +26,28 @@ export const GalleryTeaser: React.FC = () => {
             <Link
               key={item.id}
               to="/gallery"
-              className="glossy-card rounded-lg overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:-translate-y-1"
+              className="glossy-card rounded-lg overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div>
-                <div className="relative aspect-[4/3] overflow-hidden bg-black glass-reflection">
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-full h-full object-cover bw-gloss-img group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md border border-black/20 px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold uppercase tracking-wider text-black z-20">
-                    {item.category}
-                  </div>
-                </div>
-
-                <div className="p-4">
-                  <span className="text-[10px] font-mono uppercase text-ink-muted font-bold block mb-1">
-                    {item.vehicleModel}
-                  </span>
-                  <h4 className="font-serif font-black text-sm text-ink-black uppercase tracking-tight group-hover:text-black transition-colors line-clamp-1">
-                    {item.title}
-                  </h4>
-                  <p className="mt-1 text-[11px] text-ink-muted font-sans line-clamp-2">
-                    {item.caption}
-                  </p>
+              {/* Full Color Image */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-black/5">
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold uppercase tracking-wider text-white z-20">
+                  {item.category}
                 </div>
               </div>
 
-              <div className="p-4 pt-0 flex items-center justify-between text-[10px] font-mono text-ink-charcoal border-t border-ink-black/5 mt-2">
-                <span className="uppercase text-ink-muted">{item.locationOrContext}</span>
-                <span className="font-bold flex items-center gap-0.5 group-hover:underline">
-                  <span>EXPAND</span>
-                  <ArrowUpRight className="w-3 h-3" />
+              {/* Just "VIEW FULLSCREEN" Option */}
+              <div className="p-3.5 bg-white flex items-center justify-between text-xs font-mono border-t border-ink-black/10 group-hover:bg-ink-black group-hover:text-white transition-colors">
+                <span className="font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                  <span>VIEW FULLSCREEN</span>
                 </span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
             </Link>
           ))}
@@ -78,4 +66,3 @@ export const GalleryTeaser: React.FC = () => {
     </section>
   );
 };
-

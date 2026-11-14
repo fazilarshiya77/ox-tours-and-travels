@@ -18,10 +18,10 @@ export const GalleryPage: React.FC = () => {
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const matchesTitle = item.title.toLowerCase().includes(q);
-        const matchesCaption = item.caption.toLowerCase().includes(q);
         const matchesModel = item.vehicleModel.toLowerCase().includes(q);
         const matchesLoc = item.locationOrContext.toLowerCase().includes(q);
-        if (!matchesTitle && !matchesCaption && !matchesModel && !matchesLoc) {
+        const matchesCat = item.category.toLowerCase().includes(q);
+        if (!matchesTitle && !matchesModel && !matchesLoc && !matchesCat) {
           return false;
         }
       }
@@ -39,7 +39,7 @@ export const GalleryPage: React.FC = () => {
         <EditorialSectionHeader
           label="PHOTOGRAPHIC RETROSPECTIVE"
           title="THE FLEET & JOURNEY ARCHIVES"
-          subtitle="A high-contrast visual chronicle documenting our Toyota Innova Crysta, Force Urbania luxury vans, Tempo Travellers, and coaches across highways, scenic circuits, and executive cabin appointments."
+          subtitle="A vibrant photographic showcase documenting our Toyota Innova Crysta, Force Urbania luxury vans, Tempo Travellers, and touring coaches in authentic full color."
         />
 
         {/* Filter Controls Bar */}
@@ -72,7 +72,7 @@ export const GalleryPage: React.FC = () => {
             <Search className="w-4 h-4 text-ink-muted absolute left-3 top-3 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search by vehicle model, interior, or context..."
+              placeholder="Search by vehicle model, interior, or collection..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm"
@@ -82,7 +82,7 @@ export const GalleryPage: React.FC = () => {
 
         {/* Counter */}
         <div className="flex items-center justify-between text-xs font-mono text-ink-muted mb-6 px-1">
-          <span>SHOWING {filteredPhotos.length} OF {GALLERY_DATA.length} PHOTOGRAPHIC ARCHIVES</span>
+          <span>SHOWING {filteredPhotos.length} OF {GALLERY_DATA.length} PHOTOGRAPHS</span>
           {(selectedCategory !== 'All Archives' || searchQuery) && (
             <button
               onClick={() => {
@@ -96,63 +96,42 @@ export const GalleryPage: React.FC = () => {
           )}
         </div>
 
-        {/* Gallery Grid */}
+        {/* Gallery Grid - Colorful Images, No Descriptions, Just "VIEW FULLSCREEN" */}
         {filteredPhotos.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPhotos.map((item, index) => (
               <article
                 key={item.id}
                 onClick={() => setActiveLightboxIndex(index)}
-                className="glossy-card rounded-lg overflow-hidden group cursor-pointer flex flex-col justify-between transition-all duration-300 hover:-translate-y-1"
+                className="glossy-card rounded-lg overflow-hidden group cursor-pointer flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                <div>
-                  {/* Photo Frame */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black glass-reflection">
-                    <img
-                      src={item.imageUrl}
-                      alt={item.title}
-                      className="w-full h-full object-cover bw-gloss-img group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
+                {/* Full-Color Photo Frame without Black-and-White Filter */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
 
-                    {/* Category Stamp */}
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-black/20 px-2.5 py-1 rounded-sm text-[10px] font-mono font-bold uppercase tracking-wider text-black shadow-sm z-20">
-                      {item.category}
-                    </div>
-
-                    {/* Enlarge Hint */}
-                    <div className="absolute top-3 right-3 bg-black/80 text-white p-1.5 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-                      <Maximize2 className="w-3.5 h-3.5" />
-                    </div>
-
-                    {/* Location Badge */}
-                    <div className="absolute bottom-3 left-3 z-20">
-                      <span className="bg-black/90 text-white text-[11px] font-mono px-2.5 py-0.5 rounded-sm border border-white/10 shadow-sm">
-                        {item.locationOrContext}
-                      </span>
-                    </div>
+                  {/* Category Stamp */}
+                  <div className="absolute top-3 left-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-sm text-[10px] font-mono font-bold uppercase tracking-wider text-white shadow-sm z-20">
+                    {item.category}
                   </div>
 
-                  {/* Caption & Metadata */}
-                  <div className="p-5">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-ink-muted font-bold block mb-1">
-                      {item.vehicleModel}
-                    </span>
-                    <h3 className="font-serif font-black text-lg text-ink-black uppercase tracking-tight group-hover:text-black transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-xs text-ink-muted leading-relaxed font-sans font-normal">
-                      {item.caption}
-                    </p>
+                  {/* Enlarge Hint */}
+                  <div className="absolute top-3 right-3 bg-black/80 text-white p-1.5 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
+                    <Maximize2 className="w-3.5 h-3.5" />
                   </div>
                 </div>
 
-                <div className="p-5 pt-0 border-t border-ink-black/5 mt-2 flex items-center justify-between text-[11px] font-mono text-ink-charcoal">
-                  <span className="uppercase text-ink-muted">OX DISPATCH ARCHIVE</span>
-                  <span className="font-bold flex items-center gap-1 group-hover:underline">
+                {/* Just "VIEW FULLSCREEN" Option */}
+                <div className="p-4 bg-white flex items-center justify-between text-xs font-mono border-t border-ink-black/10 group-hover:bg-ink-black group-hover:text-white transition-colors">
+                  <span className="font-bold uppercase tracking-wider flex items-center gap-2">
+                    <Maximize2 className="w-3.5 h-3.5" />
                     <span>VIEW FULLSCREEN</span>
-                    <ArrowUpRight className="w-3 h-3" />
                   </span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </div>
               </article>
             ))}
@@ -212,7 +191,6 @@ export const GalleryPage: React.FC = () => {
           onClose={() => setActiveLightboxIndex(null)}
           onNext={() => setActiveLightboxIndex((prev) => (prev !== null ? (prev + 1) % lightboxImages.length : 0))}
           onPrev={() => setActiveLightboxIndex((prev) => (prev !== null ? (prev - 1 + lightboxImages.length) % lightboxImages.length : 0))}
-          caption={filteredPhotos[activeLightboxIndex]?.caption}
         />
       )}
     </div>
