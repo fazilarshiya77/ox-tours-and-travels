@@ -1,9 +1,11 @@
 export type VehicleCategory = 
+  | 'Innova Crysta'
+  | 'Tempo Traveller'
+  | 'Force Urbania'
+  | 'Luxury Bus / Coach'
   | 'Sedan' 
   | 'SUV' 
   | 'Innova / Premium MUV' 
-  | 'Tempo Traveller' 
-  | 'Force Urbania' 
   | 'Mini Bus / Coach';
 
 export interface Vehicle {

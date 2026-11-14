@@ -124,8 +124,8 @@ Routing is managed via `react-router-dom` in [`src/App.tsx`](file:///f:/ox%20tou
 | URL Path | Component | Purpose & Features |
 |---|---|---|
 | `/` | `HomePage` | The front page cover story, quick booking bar, fleet preview, trust manifesto, destinations, services, testimonials, and final call-to-action. |
-| `/fleet` | `FleetPage` | Interactive vehicle directory with category filtering, live search, passenger capacity filters (1–4, 5–7, 8–16, 17+), and sorting options. |
-| `/fleet/:id` | `VehicleDetailPage` | In-depth technical dossier for a specific vehicle by ID (`executive-sedan`, `luxury-suv`, `premium-muv-innova`, `force-urbania-luxury`, `tempo-traveller-deluxe`, `luxury-mini-bus-coach`). Includes image gallery, fullscreen lightbox, full mechanical specs, cabin amenities, and direct enquiry form. |
+| `/fleet` | `FleetPage` | Interactive vehicle directory with category filtering, live search, passenger capacity filters (Up to 7, 8–12, 13–17, 18+), and sorting options. |
+| `/fleet/:id` | `VehicleDetailPage` | In-depth technical dossier for a specific vehicle by ID (`innova-crysta`, `tempo-traveller-9-seater`, `tempo-traveller-12-seater-luxury`, `tempo-traveller-17-seater`, `luxury-bus-21-seater`, `force-urbania-9-seater-luxury`, `force-urbania-12-seater-luxury`, `force-urbania-16-seater-luxury`). Includes image gallery, fullscreen lightbox, full mechanical specs, cabin amenities, and direct enquiry form. |
 | `/services` | `ServicesPage` | Alternating image-and-text editorial magazine layout detailing all 7 transit tiers with benefits, inclusions, and direct booking links. |
 | `/destinations` | `DestinationsPage` | Travel discovery guide categorized by topography (Hill Station, Heritage, Coastal, Wildlife, Pilgrimage) with interactive photo lightboxes and route advice. |
 | `/about` | `AboutPage` | Brand storytelling in a two-column broadsheet format with drop caps, core philosophy pull quotes, and the Six Pillars of the Ox travel approach. |
@@ -237,13 +237,15 @@ export interface Vehicle {
 }
 ```
 
-### Initial Configured Vehicle Tiers
-1. **Executive Touring Sedan** (`executive-sedan`): 4 Passengers, 3 Bags. Ideal for airport transfers, city transit, and executive travel.
-2. **All-Terrain Luxury SUV** (`luxury-suv`): 6 Passengers, 4 Bags. Ideal for hill stations, mountain passes, and family vacations.
-3. **Innova / Premium MUV** (`premium-muv-innova`): 7 Passengers, 5 Bags. The flagship for multi-day outstation road trips and pilgrimage circuits.
-4. **Force Urbania Editorial Edition** (`force-urbania-luxury`): 13 Passengers, 10 Bags. High-roof walk-through van with reclining seats for VIP retreats and weddings.
-5. **Deluxe Tempo Traveller** (`tempo-traveller-deluxe`): 17 Passengers, 14 Bags. Joint family holidays, temple yatras, and collegiate groups.
-6. **Grand Touring Mini Bus & Coach** (`luxury-mini-bus-coach`): 26 Passengers, 25 Bags. Large delegations, conventions, and wedding guest logistics.
+### Owner's Configured Vehicle Fleet (8 Specific Models)
+1. **Toyota Innova Crysta** (`innova-crysta`): 7 Passengers, 5 Bags. The gold standard for family outstation trips, airport transfers, and corporate executive travel.
+2. **9-Seater Tempo Traveller** (`tempo-traveller-9-seater`): 9 Passengers, 9 Bags. Intimate group luxury with wide pushback recliners, walk-through aisle, and deep luggage hold.
+3. **12-Seater Luxury Tempo Traveller** (`tempo-traveller-12-seater-luxury`): 12 Passengers, 12 Bags. Maharaja-style luxury recliners and ducted AC for joint family pilgrimages and vacation tours.
+4. **17-Seater Tempo Traveller** (`tempo-traveller-17-seater`): 17 Passengers, 16 Bags. High capacity, wide central aisle, and heavy-duty commercial stamina for weddings and extended delegations.
+5. **21-Seater Luxury Bus** (`luxury-bus-21-seater`): 21 Passengers, 22 Bags. Air-suspended highway cruising with massive underbelly luggage bays and panoramic windows for large wedding and corporate groups.
+6. **9-Seater Luxury Urbania (Executive Class)** (`force-urbania-9-seater-luxury`): 9 Passengers, 10 Bags. Ultra-luxurious VIP cabin with Maharaja reclining captain chairs, over 6-foot standing clearance, and whisper-quiet monocoque chassis.
+7. **12-Seater Luxury Urbania** (`force-urbania-12-seater-luxury`): 12 Passengers, 12 Bags. European aerodynamic styling with independent suspension, ergonomic recliners, and personal USB ports.
+8. **16-Seater Luxury Urbania** (`force-urbania-16-seater-luxury`): 16 Passengers, 15 Bags. Full standing-height luxury van offering supreme highway comfort and limousine composure for medium-to-large contingents.
 
 ---
 

@@ -97,6 +97,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onEnquire }) 
 
         <Button 
           to="/book" 
+          state={{ preselectedVehicle: vehicle.id }}
           variant="primary" 
           size="sm" 
           className="flex-1"

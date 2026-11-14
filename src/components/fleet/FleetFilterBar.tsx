@@ -73,10 +73,10 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
             className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
           >
             <option value="all">Any Passenger Capacity</option>
-            <option value="1-4">Intimate (Up to 4 Pax)</option>
-            <option value="5-7">Family & Executive (5 to 7 Pax)</option>
-            <option value="8-16">Group Van (8 to 16 Pax)</option>
-            <option value="17+">Large Delegations (17+ Pax)</option>
+            <option value="1-7">Family & Executive (Up to 7 Pax)</option>
+            <option value="8-12">Medium Group (8 to 12 Pax)</option>
+            <option value="13-17">Large Group (13 to 17 Pax)</option>
+            <option value="18+">Grand Touring Coach (18+ Pax)</option>
           </select>
         </div>
 

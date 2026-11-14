@@ -45,7 +45,7 @@ export const AboutPage: React.FC = () => {
             </p>
 
             <p>
-              Every vehicle in our fleet, from the executive sedan to the high-roof Force Urbania, is maintained with disciplined mechanical rigor. Our chauffeurs are trained not merely in defensive driving techniques, but in gracious guest etiquette, route foresight, and patience.
+              Every vehicle in our fleet, from the Toyota Innova Crysta and Force Urbania luxury vans to our multi-seater Tempo Travellers and 21-seater coaches, is maintained with disciplined mechanical rigor. Our chauffeurs are trained not merely in defensive driving techniques, but in gracious guest etiquette, route foresight, and patience.
             </p>
           </div>
 

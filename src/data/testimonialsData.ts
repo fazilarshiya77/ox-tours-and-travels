@@ -17,17 +17,17 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     quote: 'Punctuality is everything for our visiting client delegations. Ox Tours arrived ten minutes early for every pickup, vehicles were spotless, and the billing transparency was exemplary.',
     passengerInitials: 'R. K., Director',
     cityOrRoute: 'Metropolitan Corporate Transit',
-    vehicleExperienced: 'Executive Touring Sedan',
+    vehicleExperienced: '12-Seater Luxury Urbania',
     datePlaceholder: 'Quarterly Corporate Account',
     editorialNote: 'Corporate client review excerpt from verified dispatch sheet.'
   },
   {
     id: 'dispatch-03',
     dispatchType: 'HERITAGE TOUR NOTE • SAMPLE PLACEHOLDER',
-    quote: 'We spent five days traversing historic forts and heritage towns. Having a dependable Innova and a chauffeur who knew the finest countryside breakfast halts transformed our trip.',
+    quote: 'We spent five days traversing historic forts and heritage towns. Having a dependable Innova Crysta and a chauffeur who knew the finest countryside breakfast halts transformed our trip.',
     passengerInitials: 'A. P. & Companions',
     cityOrRoute: 'Golden Heritage Triangle Corridor',
-    vehicleExperienced: 'Innova / Premium MUV',
+    vehicleExperienced: 'Toyota Innova Crysta',
     datePlaceholder: 'Autumn Holiday Expedition',
     editorialNote: 'Traveler correspondence recorded in travel guestbook.'
   },

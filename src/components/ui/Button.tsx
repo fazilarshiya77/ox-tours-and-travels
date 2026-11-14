@@ -5,6 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost' | 'dark';
   size?: 'sm' | 'md' | 'lg';
   to?: string;
+  state?: any;
   href?: string;
   external?: boolean;
   fullWidth?: boolean;
@@ -15,6 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   to,
+  state,
   href,
   external = false,
   fullWidth = false,
@@ -43,7 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (to) {
     return (
-      <Link to={to} className={combinedStyles}>
+      <Link to={to} state={state} className={combinedStyles}>
         {children}
       </Link>
     );

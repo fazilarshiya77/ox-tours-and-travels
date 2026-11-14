@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               &ldquo;{SITE_CONFIG.corePhilosophy}&rdquo;
             </p>
             <p className="text-xs sm:text-sm text-ink-light leading-relaxed font-normal max-w-md">
-              A premier editorial travel house dedicated to comfortable, reliable, and chauffeured road transportation. Offering sedans, luxury SUVs, Innova MUVs, Force Urbania vans, and touring coaches across national highways and scenic terrains.
+              A premier editorial travel house dedicated to comfortable, reliable, and chauffeured road transportation. Offering Toyota Innova Crysta, Force Urbania luxury vans, 9/12/17-seater Tempo Travellers, and 21-seater luxury coaches across national highways and scenic terrains.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-3 text-xs font-mono">

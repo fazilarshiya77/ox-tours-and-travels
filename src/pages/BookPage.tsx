@@ -564,6 +564,37 @@ export const BookPage: React.FC = () => {
                   )}
                 </div>
 
+                {/* Specific Fleet Model Selection */}
+                {formData.vehicleCategory && (
+                  <div>
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
+                      Specific Fleet Model (Optional)
+                    </label>
+                    <div className="relative">
+                      <select
+                        value={formData.preferredVehicleId}
+                        onChange={(e) => {
+                          const vId = e.target.value;
+                          const sel = FLEET_DATA.find(f => f.id === vId);
+                          setFormData({
+                            ...formData,
+                            preferredVehicleId: vId,
+                            passengers: sel ? Math.min(formData.passengers || 2, sel.passengerCapacity) : formData.passengers
+                          });
+                        }}
+                        className="w-full px-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
+                      >
+                        <option value="">Any available model in {formData.vehicleCategory} category</option>
+                        {FLEET_DATA.filter(v => v.category === formData.vehicleCategory).map((v) => (
+                          <option key={v.id} value={v.id}>
+                            {v.name} ({v.passengerCapacity} Pax • {v.luggageCapacity} Bags)
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                )}
+
                 {/* Capacity Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -780,7 +811,11 @@ export const BookPage: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-ink-black/10 text-xs font-mono">
                     <div>
                       <span className="text-ink-muted uppercase block text-[10px]">AUTOMOBILE SELECTION:</span>
-                      <p className="font-bold text-sm text-ink-black mt-0.5">{formData.vehicleCategory}</p>
+                      <p className="font-bold text-sm text-ink-black mt-0.5">
+                        {formData.preferredVehicleId 
+                          ? FLEET_DATA.find(f => f.id === formData.preferredVehicleId)?.name 
+                          : formData.vehicleCategory}
+                      </p>
                       <span className="text-ink-muted text-[11px]">
                         {formData.passengers} Passengers • {formData.luggageCount} Luggage Bags
                       </span>

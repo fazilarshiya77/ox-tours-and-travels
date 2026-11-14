@@ -21,7 +21,7 @@ export const DESTINATIONS_DATA: Destination[] = [
     distanceGuide: 'Custom Scenic Circuit (Approx. 250 – 480 KM)',
     recommendedDuration: '3 to 5 Days Itinerary',
     bestTimeToVisit: 'September through June (Scenic all year)',
-    recommendedFleet: ['Luxury SUV', 'Innova / Premium MUV', 'Force Urbania'],
+    recommendedFleet: ['Toyota Innova Crysta', 'Force Urbania', 'Tempo Traveller'],
     highlights: [
       'Panoramic Valley Viewpoints at Sunrise',
       'Heritage Tea Factory Walkthroughs & Tastings',
@@ -49,7 +49,7 @@ export const DESTINATIONS_DATA: Destination[] = [
     distanceGuide: 'Interstate Heritage Corridor (Approx. 320 – 600 KM)',
     recommendedDuration: '4 to 7 Days Itinerary',
     bestTimeToVisit: 'October through March (Mild, pleasant breezes)',
-    recommendedFleet: ['Executive Sedan', 'Innova / Premium MUV', 'Tempo Traveller'],
+    recommendedFleet: ['Toyota Innova Crysta', 'Tempo Traveller', 'Force Urbania'],
     highlights: [
       'Sunset Over Centuries-Old Sandstone Fortresses',
       'Chamber Music & Traditional Puppet Theaters',
@@ -77,7 +77,7 @@ export const DESTINATIONS_DATA: Destination[] = [
     distanceGuide: 'Coastal Shoreline Drive (Approx. 180 – 350 KM)',
     recommendedDuration: '2 to 4 Days Itinerary',
     bestTimeToVisit: 'November through May (Sunny horizons)',
-    recommendedFleet: ['Force Urbania', 'Luxury SUV', 'Executive Sedan'],
+    recommendedFleet: ['Force Urbania', 'Toyota Innova Crysta', 'Tempo Traveller'],
     highlights: [
       'Scenic Cliffside Highway Overlooks',
       'Portuguese Colonial Churches & Spice Plantations',
@@ -105,7 +105,7 @@ export const DESTINATIONS_DATA: Destination[] = [
     distanceGuide: 'Sacred Circuit (Approx. 400 – 750 KM)',
     recommendedDuration: '4 to 6 Days Itinerary',
     bestTimeToVisit: 'Year-round auspicious seasons',
-    recommendedFleet: ['Innova / Premium MUV', 'Tempo Traveller', 'Force Urbania'],
+    recommendedFleet: ['Toyota Innova Crysta', 'Tempo Traveller', '21-Seater Luxury Bus'],
     highlights: [
       'Evening Aarti on Holy Riverstone Ghats',
       'Ancient Dravidian Stone Gopurams',
@@ -133,7 +133,7 @@ export const DESTINATIONS_DATA: Destination[] = [
     distanceGuide: 'Wilderness Sanctuary Trail (Approx. 280 – 520 KM)',
     recommendedDuration: '3 to 4 Days Itinerary',
     bestTimeToVisit: 'November through June',
-    recommendedFleet: ['All-Terrain Luxury SUV', 'Innova / Premium MUV'],
+    recommendedFleet: ['Toyota Innova Crysta', 'Force Urbania'],
     highlights: [
       'Dawn Open-Top Jeep Safari Coordination',
       'Bird Sanctuary Walkways & Watchtowers',

@@ -31,10 +31,10 @@ export const FleetPage: React.FC = () => {
 
       if (selectedCapacity !== 'all') {
         const cap = vehicle.passengerCapacity;
-        if (selectedCapacity === '1-4' && cap > 4) return false;
-        if (selectedCapacity === '5-7' && (cap < 5 || cap > 7)) return false;
-        if (selectedCapacity === '8-16' && (cap < 8 || cap > 16)) return false;
-        if (selectedCapacity === '17+' && cap < 17) return false;
+        if (selectedCapacity === '1-7' && cap > 7) return false;
+        if (selectedCapacity === '8-12' && (cap < 8 || cap > 12)) return false;
+        if (selectedCapacity === '13-17' && (cap < 13 || cap > 17)) return false;
+        if (selectedCapacity === '18+' && cap < 18) return false;
       }
 
       return true;
@@ -54,7 +54,7 @@ export const FleetPage: React.FC = () => {
         <EditorialSectionHeader
           label="THE COMPLETE FLEET CATALOGUE"
           title="PRECISION VEHICLES FOR EVERY PASSAGE"
-          subtitle="From private touring sedans to multi-seater Force Urbania vans and inter-state coaches. Each machine undergoes strict mechanical certification prior to every dispatch."
+          subtitle="From the iconic Toyota Innova Crysta to luxury Force Urbania vans, multi-seater Tempo Travellers, and 21-seater coaches. Each machine undergoes strict mechanical certification prior to every dispatch."
         />
 
         {/* Filter Controls */}
