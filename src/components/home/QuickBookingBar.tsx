@@ -62,22 +62,22 @@ export const QuickBookingBar: React.FC = () => {
   const minDateStr = tomorrow.toISOString().split('T')[0];
 
   return (
-    <section className="relative -mt-8 z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-paper-white rounded-lg border border-ink-black/15 shadow-xl p-6 sm:p-8">
+    <section className="relative -mt-10 z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="glossy-card rounded-lg p-6 sm:p-8">
         
-        {/* Top Header & Trip Type Selector */}
+        {/* Top Header & Segmented Trip Type Selector */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-ink-black/10 pb-4 mb-6 gap-3">
           <div>
-            <h3 className="text-base sm:text-lg font-serif font-black uppercase text-ink-black">
-              QUICK JOURNEY REQUISITION
+            <h3 className="text-base sm:text-lg font-serif font-black uppercase text-ink-black tracking-tight">
+              JOURNEY REQUISITION DESK
             </h3>
             <p className="text-xs text-ink-muted">
-              Select your route parameters to view instant fleet availability.
+              Select route parameters to check immediate fleet availability and receive a custom tariff.
             </p>
           </div>
 
-          {/* Clean Segmented Trip Type Buttons */}
-          <div className="flex items-center bg-paper-warm p-1 rounded border border-ink-black/10">
+          {/* Monochrome Glossy Tabs */}
+          <div className="flex items-center bg-paper-warm p-1 rounded-sm border border-ink-black/10 shadow-inner">
             {[
               { id: 'outstation', label: 'Outstation' },
               { id: 'local', label: 'Local City' },
@@ -87,10 +87,10 @@ export const QuickBookingBar: React.FC = () => {
                 key={t.id}
                 type="button"
                 onClick={() => setTripType(t.id as any)}
-                className={`px-3.5 py-1.5 text-xs font-sans font-medium uppercase tracking-wider rounded transition-all ${
+                className={`px-3.5 py-1.5 text-xs font-sans font-bold uppercase tracking-wider rounded-sm transition-all ${
                   tripType === t.id
-                    ? 'bg-ink-black text-paper-white shadow-sm'
-                    : 'text-ink-charcoal hover:text-ink-black'
+                    ? 'glossy-btn-black text-white shadow-sm'
+                    : 'text-ink-charcoal hover:text-black'
                 }`}
               >
                 {t.label}
@@ -101,7 +101,7 @@ export const QuickBookingBar: React.FC = () => {
 
         {submitted ? (
           <div className="p-6 bg-paper-warm rounded border border-ink-black/15 text-center space-y-3">
-            <CheckCircle2 className="w-10 h-10 text-green-700 mx-auto" />
+            <CheckCircle2 className="w-10 h-10 text-ink-black mx-auto" />
             <h4 className="font-serif font-bold text-xl text-ink-black">
               JOURNEY REQUISITION SUBMITTED
             </h4>
@@ -110,7 +110,7 @@ export const QuickBookingBar: React.FC = () => {
             </p>
             <button
               onClick={() => setSubmitted(false)}
-              className="text-xs font-mono uppercase underline text-vintage-red font-semibold"
+              className="text-xs font-mono uppercase underline text-ink-black font-bold"
             >
               Plan Another Journey
             </button>
@@ -121,19 +121,19 @@ export const QuickBookingBar: React.FC = () => {
               
               {/* Pickup Location */}
               <div>
-                <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                   Pickup City / Address *
                 </label>
                 <div className="relative">
-                  <MapPin className="w-4 h-4 text-vintage-red absolute left-3 top-3 pointer-events-none" />
+                  <MapPin className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                   <input
                     type="text"
                     placeholder="e.g. City or Airport"
                     value={formData.pickupLocation}
                     onChange={(e) => setFormData({ ...formData, pickupLocation: e.target.value })}
-                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-sm border ${
                       errors.pickupLocation ? 'border-red-500' : 'border-ink-black/20'
-                    } focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors`}
+                    } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm`}
                   />
                 </div>
                 {errors.pickupLocation && (
@@ -145,19 +145,19 @@ export const QuickBookingBar: React.FC = () => {
 
               {/* Drop-off Location */}
               <div>
-                <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                   Drop-off Destination {tripType === 'local' ? '(Optional)' : '*'}
                 </label>
                 <div className="relative">
-                  <MapPin className="w-4 h-4 text-vintage-red absolute left-3 top-3 pointer-events-none" />
+                  <MapPin className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                   <input
                     type="text"
                     placeholder={tripType === 'local' ? 'Local City Disposal' : 'e.g. Destination or Hotel'}
                     value={formData.dropoffLocation}
                     onChange={(e) => setFormData({ ...formData, dropoffLocation: e.target.value })}
-                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-sm border ${
                       errors.dropoffLocation ? 'border-red-500' : 'border-ink-black/20'
-                    } focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors`}
+                    } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm`}
                   />
                 </div>
                 {errors.dropoffLocation && (
@@ -169,19 +169,19 @@ export const QuickBookingBar: React.FC = () => {
 
               {/* Journey Date */}
               <div>
-                <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                   Departure Date *
                 </label>
                 <div className="relative">
-                  <Calendar className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                  <Calendar className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                   <input
                     type="date"
                     min={minDateStr}
                     value={formData.pickupDate}
                     onChange={(e) => setFormData({ ...formData, pickupDate: e.target.value })}
-                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                    className={`w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border ${
                       errors.pickupDate ? 'border-red-500' : 'border-ink-black/20'
-                    } focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors`}
+                    } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm`}
                   />
                 </div>
                 {errors.pickupDate && (
@@ -193,7 +193,7 @@ export const QuickBookingBar: React.FC = () => {
 
               {/* Return Date */}
               <div>
-                <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                   Return Date (Optional)
                 </label>
                 <div className="relative">
@@ -203,24 +203,24 @@ export const QuickBookingBar: React.FC = () => {
                     min={formData.pickupDate || minDateStr}
                     value={formData.returnDate}
                     onChange={(e) => setFormData({ ...formData, returnDate: e.target.value })}
-                    className="w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors"
+                    className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm"
                   />
                 </div>
               </div>
 
               {/* Vehicle Category */}
               <div>
-                <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                   Vehicle Category *
                 </label>
                 <div className="relative">
-                  <Car className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                  <Car className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                   <select
                     value={formData.vehicleCategory}
                     onChange={(e) => setFormData({ ...formData, vehicleCategory: e.target.value as VehicleCategory })}
-                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                    className={`w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-sm border ${
                       errors.vehicleCategory ? 'border-red-500' : 'border-ink-black/20'
-                    } focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors appearance-none cursor-pointer`}
+                    } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors appearance-none cursor-pointer shadow-sm`}
                   >
                     <option value="">Select vehicle category...</option>
                     {VEHICLE_CATEGORIES.filter(c => c !== 'All Vehicles').map((cat) => (
@@ -240,15 +240,15 @@ export const QuickBookingBar: React.FC = () => {
               {/* Passengers & Search Button */}
               <div className="flex gap-3">
                 <div className="w-1/3">
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                     Guests
                   </label>
                   <div className="relative">
-                    <Users className="w-4 h-4 text-ink-charcoal absolute left-2.5 top-3 pointer-events-none" />
+                    <Users className="w-4 h-4 text-ink-black absolute left-2.5 top-3 pointer-events-none" />
                     <select
                       value={formData.passengers}
                       onChange={(e) => setFormData({ ...formData, passengers: e.target.value })}
-                      className="w-full pl-8 pr-1 py-2.5 text-sm bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer"
+                      className="w-full pl-8 pr-1 py-2.5 text-sm bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
                     >
                       {[1, 2, 3, 4, 6, 7, 10, 14, 17, 26, 35].map((num) => (
                         <option key={num} value={num}>
@@ -262,7 +262,7 @@ export const QuickBookingBar: React.FC = () => {
                 <div className="w-2/3 flex items-end">
                   <button
                     type="submit"
-                    className="w-full py-2.5 px-4 bg-vintage-red hover:bg-vintage-crimson text-paper-white text-xs font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-1.5 shadow-sm active:translate-y-0.5"
+                    className="glossy-btn-black w-full py-2.5 px-4 text-xs font-bold uppercase tracking-wider rounded-sm flex items-center justify-center gap-1.5"
                   >
                     <span>SEARCH FLEET</span>
                     <ArrowRight className="w-4 h-4" />
@@ -272,7 +272,7 @@ export const QuickBookingBar: React.FC = () => {
 
             </div>
 
-            <p className="text-xs text-ink-muted text-center pt-2">
+            <p className="text-xs font-mono text-ink-muted text-center pt-2">
               Chauffeur assigned upon itinerary confirmation. Transparent kilometer & day package rates.
             </p>
           </form>

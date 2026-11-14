@@ -52,10 +52,10 @@ export const DestinationsPage: React.FC = () => {
         />
 
         {/* Filter Controls */}
-        <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 mb-10 shadow-sm">
+        <div className="glossy-card rounded-lg p-6 mb-10 shadow-sm">
           
           <div className="border-b border-ink-black/10 pb-4 mb-4">
-            <span className="block text-[11px] font-mono uppercase tracking-wider font-bold text-vintage-red mb-3">
+            <span className="block text-[11px] font-mono uppercase tracking-wider font-bold text-ink-muted mb-3">
               ESCORTED TOPOGRAPHIES
             </span>
             <div className="flex flex-wrap gap-2">
@@ -64,10 +64,10 @@ export const DestinationsPage: React.FC = () => {
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider rounded transition-all ${
+                  className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition-all ${
                     selectedCategory === cat
-                      ? 'bg-vintage-red text-paper-white shadow-sm font-bold'
-                      : 'bg-paper-warm text-ink-charcoal border border-ink-black/15 hover:border-ink-black hover:bg-paper-tan'
+                      ? 'glossy-btn-black text-white shadow-sm font-bold'
+                      : 'bg-paper-warm text-ink-charcoal border border-ink-black/15 hover:border-ink-black hover:bg-white'
                   }`}
                 >
                   {cat}
@@ -83,7 +83,7 @@ export const DestinationsPage: React.FC = () => {
               placeholder="Search by destination name, region, or highlight..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-paper-warm rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors"
+              className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm"
             />
           </div>
 
@@ -95,34 +95,34 @@ export const DestinationsPage: React.FC = () => {
             {filteredDestinations.map((dest, idx) => (
               <article
                 key={dest.id}
-                className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow"
+                className="glossy-card rounded-lg p-6 sm:p-8 lg:p-10 shadow-sm"
               >
                 <div className="flex flex-wrap items-center justify-between border-b border-ink-black/10 pb-3 mb-6 text-xs font-mono gap-2">
                   <div className="flex items-center gap-2">
                     <span className="vintage-stamp">
                       CIRCUIT § {idx + 1}
                     </span>
-                    <span className="text-vintage-red font-bold uppercase">
+                    <span className="text-ink-black font-bold uppercase">
                       {dest.category}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 text-ink-muted">
-                    <MapPin className="w-3.5 h-3.5 text-vintage-red" />
+                    <MapPin className="w-3.5 h-3.5 text-ink-black" />
                     <span>{dest.region}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
-                  {/* Gallery */}
+                  {/* Gallery with Black & White Glossy Treatment */}
                   <div className="lg:col-span-5 space-y-3">
-                    <div className="relative rounded-lg overflow-hidden border border-ink-black/10 bg-ink-charcoal group">
+                    <div className="relative rounded-sm overflow-hidden border border-ink-black/20 bg-black glass-reflection group">
                       <div className="aspect-[16/10] w-full overflow-hidden">
                         <img
                           src={dest.images.hero}
                           alt={dest.name}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          className="w-full h-full object-cover bw-gloss-img"
                           loading="lazy"
                         />
                       </div>
@@ -130,13 +130,13 @@ export const DestinationsPage: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => openLightbox(dest.images.gallery, dest.name)}
-                        className="absolute top-2.5 right-2.5 p-2 bg-ink-black/70 hover:bg-vintage-red text-paper-white rounded transition-colors"
+                        className="absolute top-2.5 right-2.5 p-2 bg-black/70 hover:bg-black text-white rounded-sm transition-colors border border-white/20 z-20"
                         title="Enlarge photograph"
                       >
                         <Maximize2 className="w-3.5 h-3.5" />
                       </button>
 
-                      <div className="absolute bottom-2.5 left-2.5 bg-ink-black/85 text-paper-white text-xs font-mono px-2.5 py-1 rounded">
+                      <div className="absolute bottom-2.5 left-2.5 bg-black/90 text-white text-xs font-mono px-2.5 py-1 rounded-sm border border-white/10 z-20">
                         {dest.distanceGuide}
                       </div>
                     </div>
@@ -147,9 +147,9 @@ export const DestinationsPage: React.FC = () => {
                           <div
                             key={thumbIdx}
                             onClick={() => openLightbox(dest.images.gallery, dest.name)}
-                            className="aspect-[16/10] rounded overflow-hidden border border-ink-black/15 cursor-pointer hover:border-vintage-red transition-all"
+                            className="aspect-[16/10] rounded-sm overflow-hidden border border-ink-black/15 cursor-pointer hover:border-black transition-all bg-black"
                           >
-                            <img src={img} alt={`Thumbnail ${thumbIdx + 1}`} className="w-full h-full object-cover" />
+                            <img src={img} alt={`Thumbnail ${thumbIdx + 1}`} className="w-full h-full object-cover bw-gloss-img" />
                           </div>
                         ))}
                       </div>
@@ -162,7 +162,7 @@ export const DestinationsPage: React.FC = () => {
                       {dest.name}
                     </h2>
 
-                    <p className="font-serif italic text-sm sm:text-base text-vintage-red">
+                    <p className="font-serif italic text-sm sm:text-base text-ink-muted">
                       &ldquo;{dest.subtitle}&rdquo;
                     </p>
 
@@ -179,7 +179,7 @@ export const DestinationsPage: React.FC = () => {
                         <ul className="space-y-1.5 text-xs text-ink-charcoal font-sans">
                           {dest.highlights.map((h, hIdx) => (
                             <li key={hIdx} className="flex items-start gap-1.5">
-                              <span className="text-vintage-red font-bold">•</span>
+                              <span className="text-ink-black font-bold">•</span>
                               <span className="leading-snug">{h}</span>
                             </li>
                           ))}
@@ -197,17 +197,17 @@ export const DestinationsPage: React.FC = () => {
                         </div>
                         <div>
                           <span className="text-ink-black font-bold uppercase block text-[10px]">RECOMMENDED FLEET:</span>
-                          <span className="text-vintage-red font-semibold">{dest.recommendedFleet.join(', ')}</span>
+                          <span className="text-ink-black font-bold">{dest.recommendedFleet.join(', ')}</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="pt-4 border-t border-ink-black/10 flex items-center justify-between">
-                      <span className="text-[11px] font-mono uppercase text-ink-muted">
+                      <span className="text-[11px] font-mono uppercase text-ink-muted font-bold">
                         CUSTOM ITINERARIES AVAILABLE
                       </span>
 
-                      <Button to="/book" variant="accent" size="sm">
+                      <Button to="/book" variant="primary" size="sm">
                         <span>PLAN YOUR TRIP TO THIS DESTINATION</span>
                         <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
                       </Button>
@@ -220,7 +220,7 @@ export const DestinationsPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="bg-paper-white rounded-lg border border-ink-black/15 p-12 text-center my-8 shadow-sm">
+          <div className="glossy-card rounded-lg p-12 text-center my-8 shadow-sm">
             <h3 className="font-serif font-black text-2xl text-ink-black">
               NO DESTINATION ESSAYS FOUND
             </h3>

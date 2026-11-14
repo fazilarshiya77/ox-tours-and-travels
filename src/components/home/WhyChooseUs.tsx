@@ -5,14 +5,14 @@ import { EditorialSectionHeader } from '../ui/EditorialSectionHeader';
 
 export const WhyChooseUs: React.FC = () => {
   const icons = [
-    <Armchair key="01" className="w-6 h-6 text-vintage-red stroke-[1.75]" />,
-    <Compass key="02" className="w-6 h-6 text-vintage-red stroke-[1.75]" />,
-    <CalendarRange key="03" className="w-6 h-6 text-vintage-red stroke-[1.75]" />,
-    <Headphones key="04" className="w-6 h-6 text-vintage-red stroke-[1.75]" />
+    <Armchair key="01" className="w-5 h-5 text-white stroke-[2]" />,
+    <Compass key="02" className="w-5 h-5 text-white stroke-[2]" />,
+    <CalendarRange key="03" className="w-5 h-5 text-white stroke-[2]" />,
+    <Headphones key="04" className="w-5 h-5 text-white stroke-[2]" />
   ];
 
   return (
-    <section className="py-20 bg-paper-white border-b border-ink-black/10">
+    <section className="py-20 bg-paper-white border-b border-ink-black/15">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <EditorialSectionHeader
@@ -22,19 +22,19 @@ export const WhyChooseUs: React.FC = () => {
           number="02"
         />
 
-        {/* Four Feature Blocks */}
+        {/* Four Feature Blocks with Glossy Card Finish */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SITE_CONFIG.editorialPillars.map((pillar, index) => (
             <div
               key={pillar.number}
-              className="bg-paper-warm/60 rounded-lg border border-ink-black/15 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:bg-paper-warm"
+              className="glossy-card rounded-lg p-7 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between border-b border-ink-black/10 pb-4 mb-4">
-                  <span className="font-mono text-xl font-black text-vintage-red">
+                  <span className="font-mono text-2xl font-black text-ink-black tracking-tight">
                     {pillar.number}
                   </span>
-                  <div className="p-2.5 bg-paper-white rounded-md border border-ink-black/10">
+                  <div className="w-9 h-9 rounded-sm bg-ink-black flex items-center justify-center shadow-sm">
                     {icons[index]}
                   </div>
                 </div>
@@ -53,8 +53,8 @@ export const WhyChooseUs: React.FC = () => {
               </div>
 
               <div className="mt-6 pt-3 border-t border-ink-black/10 flex items-center justify-between text-[11px] font-mono text-ink-muted uppercase tracking-wider">
-                <span>CERTIFIED PROTOCOL</span>
-                <span className="text-vintage-red font-bold">OX PROMISE</span>
+                <span>VERIFIED STANDARD</span>
+                <span className="text-ink-black font-bold">OX PROMISE</span>
               </div>
             </div>
           ))}

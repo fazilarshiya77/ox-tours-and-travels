@@ -137,7 +137,7 @@ Routing is managed via `react-router-dom` in [`src/App.tsx`](file:///f:/ox%20tou
 
 ## 5. UI/UX Design System & Theme
 
-The website adheres to a **modern luxury editorial newspaper aesthetic**: crisp typography, fine hairline rules, generous whitespace, balanced visual hierarchy, and authentic publication elements.
+The website adheres to a **Black & White Glossy Luxury Newspaper Editorial Aesthetic**: classic journalism layout rules combined with high-fashion monochrome photography, piano-black glossy surfaces, porcelain white highlights, and subtle glass sheens.
 
 ### Color Palette
 
@@ -145,14 +145,19 @@ Defined in [`tailwind.config.js`](file:///f:/ox%20tours%20and%20travels/tailwind
 
 | Color Name | Hex Code | Tailwind Utility | Visual Purpose |
 |---|---|---|---|
-| **Warm Ivory** | `#F5F0E6` | `bg-paper-warm` | Section backgrounds, card containers, subtle warm tint |
-| **Newspaper White** | `#FAF9F5` | `bg-paper-white` | Main body canvas, card faces, clean high-readability zones |
-| **Aged Paper Beige** | `#D8CFBE` | `bg-paper-aged` | Secondary pill tags, borders, subtle divider tones |
-| **Ink Black** | `#171717` | `text-ink-black`, `bg-ink-black` | Primary typography, high-contrast buttons, dark badges |
-| **Charcoal** | `#292929` | `text-ink-charcoal` | Secondary headers, image container backgrounds |
-| **Subtle Grey** | `#85827B` | `text-ink-muted` | Meta information, captions, helper text, timestamps |
-| **Muted Vintage Red** | `#9F3029` | `text-vintage-red`, `bg-vintage-red` | Signature accent: brand highlights, CTAs, stamps, drop caps |
-| **Vintage Crimson** | `#82241E` | `hover:bg-vintage-crimson` | Hover state for accent buttons |
+| **Piano Black** | `#0A0A0A` | `text-ink-black`, `bg-ink-black` | Core primary typography, high-gloss buttons, dark card surfaces |
+| **Porcelain White** | `#FFFFFF` | `bg-white`, `text-white` | Glossy card surfaces, high-contrast badges, specular highlights |
+| **Warm Ivory** | `#F7F6F3` | `bg-paper-warm` | Page canvas background, input backgrounds |
+| **Charcoal** | `#1A1A1A` | `text-ink-charcoal` | Secondary headers, image container backgrounds |
+| **Subtle Grey** | `#5A5A5A` | `text-ink-muted` | Meta information, captions, helper text, timestamps |
+| **Light Silver** | `#E2E8F0` | `border-ink-black/15` | Fine glossy borders and hairline dividers |
+
+### Luxury Glossy Visual Effects
+- **`.glossy-card`**: High-gloss magazine card surface with fine hairline border (`1px solid rgba(10, 10, 10, 0.12)`), top specular highlight (`inset 0 1px 0 rgba(255, 255, 255, 1)`), and smooth lift on hover.
+- **`.glossy-dark`**: Piano-black linear gradient surface (`#1A1A1A` to `#0A0A0A`) with subtle top specular highlight (`inset 0 1px 0 rgba(255, 255, 255, 0.2)`).
+- **`.glossy-btn-black`**: Piano-black buttons featuring an animated light sweep reflection sheen on hover.
+- **`.bw-gloss-img`**: High-contrast black and white photography filter (`grayscale(100%) contrast(118%) brightness(96%)`) with smooth scale and brightness lift on hover.
+- **`.glass-reflection`**: Subtle diagonal light reflection gradient over automotive and scenic photography frames.
 
 ### Typography Hierarchy
 

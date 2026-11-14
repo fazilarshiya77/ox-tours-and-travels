@@ -32,10 +32,10 @@ export const Navigation: React.FC = () => {
   return (
     <>
       <nav 
-        className={`sticky top-0 z-40 w-full transition-all duration-200 border-b border-ink-black/10 ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${
           isScrolled 
-            ? 'bg-paper-white/95 backdrop-blur-md shadow-sm py-3' 
-            : 'bg-paper-warm py-3'
+            ? 'bg-white/90 backdrop-blur-md shadow-glossy border-ink-black/15 py-3' 
+            : 'bg-paper-white/95 backdrop-blur-sm border-ink-black/10 py-3'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,14 +44,14 @@ export const Navigation: React.FC = () => {
             {/* Scrolled Mini Logo */}
             <Link 
               to="/" 
-              className={`flex items-center gap-2 transition-opacity duration-200 ${
+              className={`flex items-center gap-2.5 transition-opacity duration-200 ${
                 isScrolled ? 'opacity-100' : 'opacity-0 md:opacity-100 pointer-events-auto'
               }`}
             >
-              <span className="w-7 h-7 bg-ink-black text-paper-white flex items-center justify-center font-serif font-black text-xs">
+              <span className="w-7 h-7 bg-ink-black text-white rounded-sm flex items-center justify-center font-serif font-black text-xs shadow-sm">
                 OX
               </span>
-              <span className="font-serif font-bold text-sm tracking-tight text-ink-black uppercase">
+              <span className="font-serif font-black text-sm tracking-tight text-ink-black uppercase">
                 OX TOURS
               </span>
             </Link>
@@ -63,10 +63,10 @@ export const Navigation: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-xs lg:text-[13px] font-sans uppercase font-medium tracking-[0.14em] transition-colors py-1 ${
+                    `text-xs lg:text-[13px] font-sans uppercase font-bold tracking-[0.16em] transition-all py-1 ${
                       isActive 
-                        ? 'text-vintage-red font-bold border-b-2 border-vintage-red' 
-                        : 'text-ink-charcoal hover:text-vintage-red'
+                        ? 'text-ink-black border-b-2 border-ink-black' 
+                        : 'text-ink-muted hover:text-ink-black'
                     }`
                   }
                 >
@@ -81,16 +81,16 @@ export const Navigation: React.FC = () => {
                 href={SITE_CONFIG.socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-ink-charcoal hover:text-green-700 transition-colors border border-ink-black/15 bg-paper-white"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-ink-charcoal hover:text-ink-black transition-colors border border-ink-black/15 bg-white rounded-sm shadow-sm hover:shadow"
                 title="Chat on WhatsApp"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-green-700" />
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-700" />
                 <span className="hidden lg:inline">WhatsApp</span>
               </a>
 
               <Link
                 to="/book"
-                className="inline-flex items-center gap-1 px-4 py-2 text-xs font-sans font-bold uppercase tracking-[0.12em] text-paper-white bg-vintage-red hover:bg-vintage-crimson transition-all shadow-sm active:translate-y-0.5"
+                className="glossy-btn-black inline-flex items-center gap-1.5 px-4 py-2 text-xs font-sans font-bold uppercase tracking-[0.14em] rounded-sm shadow-sm"
               >
                 <span>BOOK YOUR RIDE</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -101,7 +101,7 @@ export const Navigation: React.FC = () => {
             <div className="flex items-center gap-2 md:hidden">
               <Link
                 to="/book"
-                className="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-paper-white bg-vintage-red"
+                className="glossy-btn-black px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-sm"
               >
                 BOOK
               </Link>
@@ -109,7 +109,7 @@ export const Navigation: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-ink-black hover:text-vintage-red border border-ink-black/20 focus:outline-none"
+                className="p-2 text-ink-black border border-ink-black/20 rounded-sm focus:outline-none"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -122,18 +122,18 @@ export const Navigation: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden bg-ink-black/50 backdrop-blur-sm">
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-paper-white border-l border-ink-black/20 shadow-xl p-6 flex flex-col justify-between">
+        <div className="fixed inset-0 z-50 md:hidden bg-ink-black/60 backdrop-blur-sm">
+          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white border-l border-ink-black/20 shadow-2xl p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-ink-black/10 pb-4 mb-6">
                 <div>
                   <h3 className="font-serif font-black text-xl text-ink-black">OX TOURS</h3>
-                  <p className="text-[10px] font-mono text-vintage-red uppercase tracking-widest">Travel Edition</p>
+                  <p className="text-[10px] font-mono text-ink-muted uppercase tracking-widest">Luxury Travel Gazette</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-1.5 border border-ink-black/20 hover:bg-paper-warm"
+                  className="p-1.5 border border-ink-black/20 rounded hover:bg-paper-warm"
                 >
                   <X className="w-5 h-5 text-ink-black" />
                 </button>
@@ -145,10 +145,10 @@ export const Navigation: React.FC = () => {
                     key={link.path}
                     to={link.path}
                     className={({ isActive }) =>
-                      `px-3 py-2.5 text-sm font-sans uppercase font-medium tracking-[0.14em] transition-colors rounded ${
+                      `px-3 py-2.5 text-sm font-sans uppercase font-bold tracking-[0.14em] transition-colors rounded ${
                         isActive 
-                          ? 'text-vintage-red font-bold bg-vintage-red/10 border-l-4 border-vintage-red' 
-                          : 'text-ink-black hover:text-vintage-red'
+                          ? 'text-white bg-ink-black' 
+                          : 'text-ink-black hover:bg-paper-warm'
                       }`
                     }
                   >
@@ -161,7 +161,7 @@ export const Navigation: React.FC = () => {
             <div className="pt-6 border-t border-ink-black/10 space-y-3">
               <Link
                 to="/book"
-                className="w-full flex items-center justify-center gap-2 py-3 text-xs font-bold uppercase tracking-widest text-paper-white bg-vintage-red shadow-sm"
+                className="glossy-btn-black w-full flex items-center justify-center gap-2 py-3 text-xs font-bold uppercase tracking-widest rounded-sm"
               >
                 <span>BOOK YOUR RIDE</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -171,9 +171,9 @@ export const Navigation: React.FC = () => {
                 href={SITE_CONFIG.socialLinks.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-mono uppercase tracking-wider text-ink-black border border-ink-black/20 bg-paper-warm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-mono uppercase tracking-wider text-ink-black border border-ink-black/20 bg-paper-warm rounded-sm"
               >
-                <MessageSquare className="w-4 h-4 text-green-700" />
+                <MessageSquare className="w-4 h-4 text-emerald-700" />
                 <span>WhatsApp Desk</span>
               </a>
 
@@ -181,7 +181,7 @@ export const Navigation: React.FC = () => {
                 href={`tel:${SITE_CONFIG.contact.primaryPhone.replace(/\s+/g, '')}`}
                 className="w-full flex items-center justify-center gap-2 py-1.5 text-xs font-mono text-ink-muted"
               >
-                <Phone className="w-3.5 h-3.5 text-vintage-red" />
+                <Phone className="w-3.5 h-3.5 text-ink-black" />
                 <span>{SITE_CONFIG.contact.primaryPhone}</span>
               </a>
             </div>

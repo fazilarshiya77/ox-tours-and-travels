@@ -24,11 +24,11 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
   onSortChange,
 }) => {
   return (
-    <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 mb-10 shadow-sm">
+    <div className="glossy-card rounded-lg p-6 mb-10 shadow-sm">
       
       {/* Category Filter Pills */}
       <div className="border-b border-ink-black/10 pb-4 mb-5">
-        <span className="block text-[11px] font-mono uppercase tracking-wider font-bold text-vintage-red mb-3">
+        <span className="block text-[11px] font-mono uppercase tracking-wider font-bold text-ink-muted mb-3">
           FILTER BY CATEGORY
         </span>
         <div className="flex flex-wrap gap-2">
@@ -37,10 +37,10 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
               key={cat}
               type="button"
               onClick={() => onSelectCategory(cat)}
-              className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider rounded transition-all ${
+              className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition-all ${
                 selectedCategory === cat
-                  ? 'bg-vintage-red text-paper-white shadow-sm font-bold'
-                  : 'bg-paper-warm text-ink-charcoal border border-ink-black/15 hover:border-ink-black hover:bg-paper-tan'
+                  ? 'glossy-btn-black text-white shadow-sm font-bold'
+                  : 'bg-paper-warm text-ink-charcoal border border-ink-black/15 hover:border-ink-black hover:bg-white'
               }`}
             >
               {cat}
@@ -60,7 +60,7 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
             placeholder="Search vehicle model, category, feature..."
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-paper-warm rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white transition-colors"
+            className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm"
           />
         </div>
 
@@ -70,7 +70,7 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
           <select
             value={selectedCapacity}
             onChange={(e) => onCapacityChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-paper-warm rounded border border-ink-black/20 focus:border-ink-black focus:outline-none transition-colors appearance-none cursor-pointer"
+            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
           >
             <option value="all">Any Passenger Capacity</option>
             <option value="1-4">Intimate (Up to 4 Pax)</option>
@@ -86,7 +86,7 @@ export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
           <select
             value={sortBy}
             onChange={(e) => onSortChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-paper-warm rounded border border-ink-black/20 focus:border-ink-black focus:outline-none transition-colors appearance-none cursor-pointer"
+            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
           >
             <option value="featured">Sort: Featured Tier</option>
             <option value="capacity-asc">Capacity: Low to High</option>

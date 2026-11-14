@@ -16,12 +16,12 @@ export const AboutPage: React.FC = () => {
           subtitle="A travel agency conceived on the premise that road transport should elevate the spirit rather than test one's patience."
         />
 
-        {/* Story Card */}
-        <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-10 lg:p-12 shadow-sm mb-12">
+        {/* Story Card with Glossy Look */}
+        <div className="glossy-card rounded-lg p-6 sm:p-10 lg:p-12 mb-12">
           
           <div className="border-b border-ink-black/10 pb-4 mb-8 flex flex-wrap items-center justify-between text-xs font-mono text-ink-muted gap-2">
             <div>
-              <span className="text-vintage-red font-bold uppercase tracking-wider">FOUNDATIONAL ESSAY</span>
+              <span className="text-ink-black font-bold uppercase tracking-wider">FOUNDATIONAL ESSAY</span>
               <span className="mx-2">•</span>
               <span>THE OPEN ROAD AS A SANCTUARY</span>
             </div>
@@ -49,17 +49,17 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Pull Quote */}
-          <div className="my-10 p-6 sm:p-8 bg-paper-warm rounded-lg border border-ink-black/10 text-center">
+          {/* Glossy Pull Quote */}
+          <div className="my-10 p-6 sm:p-8 bg-paper-warm rounded-lg border border-ink-black/10 text-center shadow-inner">
             <blockquote className="font-serif italic text-xl sm:text-2xl text-ink-black max-w-2xl mx-auto">
               &ldquo;{SITE_CONFIG.corePhilosophy}&rdquo;
             </blockquote>
-            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-vintage-red font-bold">
+            <p className="mt-2 text-xs font-mono uppercase tracking-widest text-ink-black font-bold">
               — THE OX TOURS COMMITMENT
             </p>
           </div>
 
-          {/* Pillars Grid */}
+          {/* Pillars Grid with Glossy Cards */}
           <div className="mt-12">
             <h3 className="text-xl sm:text-2xl font-serif font-black uppercase text-ink-black border-b border-ink-black/10 pb-3 mb-6">
               THE SIX PILLARS OF OUR TRAVEL APPROACH
@@ -67,8 +67,8 @@ export const AboutPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <ShieldCheck className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">01. Mechanical Sanity</span>
                 </div>
@@ -77,8 +77,8 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <HeartHandshake className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">02. Chauffeur Decorum</span>
                 </div>
@@ -87,8 +87,8 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <Compass className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">03. Route Foresight</span>
                 </div>
@@ -97,8 +97,8 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <Users className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">04. Generational Comfort</span>
                 </div>
@@ -107,8 +107,8 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <Sparkles className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">05. Pristine Hygiene</span>
                 </div>
@@ -117,8 +117,8 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-6 bg-paper-warm/50">
-                <div className="flex items-center gap-2 mb-2 text-vintage-red">
+              <div className="border border-ink-black/10 rounded-sm p-6 bg-paper-warm/70 shadow-sm">
+                <div className="flex items-center gap-2 mb-2 text-ink-black">
                   <CheckCircle2 className="w-5 h-5" />
                   <span className="font-mono text-xs font-bold uppercase tracking-wider">06. Billing Transparency</span>
                 </div>
@@ -133,7 +133,7 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* Invitation */}
-        <div className="bg-paper-white rounded-lg border border-ink-black/15 p-8 sm:p-10 text-center shadow-sm">
+        <div className="glossy-card rounded-lg p-8 sm:p-10 text-center">
           <span className="vintage-stamp">THE OPEN INVITATION</span>
           <h3 className="mt-2 text-3xl font-serif font-black text-ink-black uppercase">
             LET US DRIVE YOUR NEXT EXPEDITION
@@ -143,7 +143,7 @@ export const AboutPage: React.FC = () => {
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <Button to="/book" variant="accent" size="md">
+            <Button to="/book" variant="primary" size="md">
               <span>BOOK YOUR JOURNEY</span>
               <ArrowUpRight className="w-4 h-4 ml-1" />
             </Button>

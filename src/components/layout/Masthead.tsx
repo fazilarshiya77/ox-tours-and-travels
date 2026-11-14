@@ -12,25 +12,27 @@ export const Masthead: React.FC = () => {
   }).format(new Date());
 
   return (
-    <header className="bg-paper-warm/80 border-b border-ink-black/10 select-none">
+    <header className="bg-paper-white border-b border-ink-black/15 select-none relative shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Subtle top information row */}
         <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-ink-muted py-2 border-b border-ink-black/10">
           <div className="flex items-center gap-2 sm:gap-4">
-            <span className="font-semibold text-ink-black">{SITE_CONFIG.volume}</span>
-            <span className="text-ink-black/30">•</span>
-            <span className="hidden sm:inline">{today}</span>
-            <span className="text-ink-black/30 hidden sm:inline">•</span>
-            <span className="text-vintage-red font-semibold">{SITE_CONFIG.edition}</span>
+            <span className="font-bold text-ink-black px-1.5 py-0.5 bg-paper-warm border border-ink-black/10 rounded-sm">
+              {SITE_CONFIG.volume}
+            </span>
+            <span className="text-ink-black/20">•</span>
+            <span className="hidden sm:inline text-ink-charcoal">{today}</span>
+            <span className="text-ink-black/20 hidden sm:inline">•</span>
+            <span className="text-ink-black font-semibold">{SITE_CONFIG.edition}</span>
           </div>
 
           <div className="flex items-center gap-3">
             <a 
               href={`tel:${SITE_CONFIG.contact.primaryPhone.replace(/\s+/g, '')}`}
-              className="hover:text-vintage-red transition-colors flex items-center gap-1.5 font-medium text-ink-black"
+              className="hover:text-ink-black transition-colors flex items-center gap-1.5 font-semibold text-ink-charcoal"
             >
-              <PhoneCall className="w-3 h-3 text-vintage-red" />
+              <PhoneCall className="w-3 h-3 text-ink-black" />
               <span>{SITE_CONFIG.contact.primaryPhone}</span>
             </a>
           </div>
@@ -39,25 +41,25 @@ export const Masthead: React.FC = () => {
         {/* Newspaper Center Masthead Wordmark */}
         <div className="text-center py-6 sm:py-8">
           <Link to="/" className="group inline-block focus:outline-none">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black tracking-tight text-ink-black uppercase transition-colors group-hover:text-ink-charcoal">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black tracking-tighter text-ink-black uppercase transition-transform group-hover:scale-[1.008] duration-300">
               {SITE_CONFIG.brandName}
             </h1>
           </Link>
 
-          <p className="mt-2 text-xs sm:text-sm font-serif italic text-vintage-red tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm font-serif italic text-ink-muted tracking-widest uppercase">
             &ldquo;{SITE_CONFIG.mastheadTagline}&rdquo;
           </p>
         </div>
 
         {/* Clean Editorial Divider Row */}
-        <div className="py-2.5 border-t border-b border-ink-black/15 flex items-center justify-between text-[11px] sm:text-xs font-serif uppercase tracking-[0.2em] text-ink-charcoal font-semibold">
+        <div className="py-2.5 border-t border-b-2 border-ink-black flex items-center justify-between text-[11px] sm:text-xs font-serif uppercase tracking-[0.22em] text-ink-black font-bold">
           <span className="hidden md:inline text-ink-muted text-[10px] font-mono tracking-widest">
             ESTD. FOR LUXURY ROADS
           </span>
           <span className="mx-auto md:mx-0 text-center tracking-[0.25em]">
             {SITE_CONFIG.editorialRow}
           </span>
-          <span className="hidden md:flex items-center gap-1 text-vintage-red text-[10px] font-mono font-bold tracking-widest">
+          <span className="hidden md:flex items-center gap-1 text-ink-black text-[10px] font-mono font-bold tracking-widest">
             <ShieldCheck className="w-3.5 h-3.5" /> CHAUFFEUR CERTIFIED
           </span>
         </div>

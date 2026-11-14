@@ -21,20 +21,20 @@ export const EditorialSectionHeader: React.FC<EditorialSectionHeaderProps> = ({
 
   return (
     <div className={`mb-12 select-none ${isCenter ? 'text-center' : 'text-left'} ${className}`}>
-      {/* Top Editorial Label */}
-      <div className={`flex items-center gap-2.5 mb-3 ${isCenter ? 'justify-center' : 'justify-start'}`}>
+      {/* Top Editorial Monochrome Tag */}
+      <div className={`flex items-center gap-2.5 mb-3.5 ${isCenter ? 'justify-center' : 'justify-start'}`}>
         {number && (
-          <span className="font-mono text-xs font-bold text-vintage-red tracking-wider">
-            [{number}]
+          <span className="font-mono text-xs font-bold text-ink-black tracking-widest px-2 py-0.5 bg-white border border-ink-black/20 shadow-sm rounded-sm">
+            NO. {number}
           </span>
         )}
-        <span className="text-[11px] font-mono uppercase tracking-[0.2em] font-bold text-vintage-red">
+        <span className="text-[11px] font-mono uppercase tracking-[0.22em] font-bold text-ink-muted">
           {label}
         </span>
       </div>
 
       {/* Main Headline */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-ink-black leading-tight">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-black tracking-tight text-ink-black leading-tight uppercase">
         {title}
       </h2>
 
@@ -47,8 +47,8 @@ export const EditorialSectionHeader: React.FC<EditorialSectionHeaderProps> = ({
         </p>
       )}
 
-      {/* Subtle Divider */}
-      <div className={`mt-5 h-[1px] bg-ink-black/10 ${isCenter ? 'w-24 mx-auto' : 'w-full'}`} />
+      {/* Hairline Divider */}
+      <div className={`mt-5 h-[1px] bg-gradient-to-r from-ink-black/20 via-ink-black/40 to-ink-black/20 ${isCenter ? 'w-32 mx-auto' : 'w-full'}`} />
     </div>
   );
 };

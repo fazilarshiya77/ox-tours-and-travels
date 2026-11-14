@@ -81,13 +81,13 @@ export const VehicleDetailPage: React.FC = () => {
         <div className="flex items-center justify-between border-b border-ink-black/10 pb-4 mb-8 text-xs font-mono">
           <Link
             to="/fleet"
-            className="inline-flex items-center gap-1.5 text-ink-charcoal hover:text-vintage-red font-bold uppercase transition-colors"
+            className="inline-flex items-center gap-1.5 text-ink-charcoal hover:text-black font-bold uppercase transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Fleet Catalogue</span>
           </Link>
 
-          <span className="text-vintage-red font-semibold uppercase">
+          <span className="text-ink-black font-semibold uppercase">
             CATEGORY: {vehicle.category}
           </span>
         </div>
@@ -105,7 +105,7 @@ export const VehicleDetailPage: React.FC = () => {
             {vehicle.name}
           </h1>
 
-          <p className="mt-2 text-sm sm:text-base font-serif italic text-vintage-red max-w-3xl">
+          <p className="mt-2 text-sm sm:text-base font-serif italic text-ink-muted max-w-3xl">
             &ldquo;{vehicle.tagline}&rdquo;
           </p>
         </div>
@@ -116,19 +116,19 @@ export const VehicleDetailPage: React.FC = () => {
           {/* Left Column: Visual Gallery & Specs (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
             
-            {/* Gallery Frame */}
-            <div className="bg-paper-white rounded-lg border border-ink-black/15 p-3 shadow-sm">
-              <div className="relative aspect-[16/10] overflow-hidden rounded bg-ink-charcoal">
+            {/* Gallery Frame with Black & White Glossy Treatment */}
+            <div className="glossy-card rounded-lg p-3 shadow-sm">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-black glass-reflection">
                 <img
                   src={galleryImages[activeImageIndex]}
                   alt={`${vehicle.name} view ${activeImageIndex + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover bw-gloss-img"
                 />
 
                 <button
                   type="button"
                   onClick={() => setIsLightboxOpen(true)}
-                  className="absolute top-3 right-3 p-2 bg-ink-black/70 hover:bg-vintage-red text-paper-white rounded transition-colors"
+                  className="absolute top-3 right-3 p-2 bg-black/70 hover:bg-black text-white rounded-sm transition-colors border border-white/20 z-20"
                   aria-label="Enlarge image"
                 >
                   <Maximize2 className="w-4 h-4" />
@@ -143,13 +143,13 @@ export const VehicleDetailPage: React.FC = () => {
                       key={idx}
                       type="button"
                       onClick={() => setActiveImageIndex(idx)}
-                      className={`relative aspect-[16/10] overflow-hidden rounded border-2 transition-all ${
+                      className={`relative aspect-[16/10] overflow-hidden rounded-sm border-2 transition-all bg-black ${
                         activeImageIndex === idx 
-                          ? 'border-vintage-red opacity-100 shadow-sm' 
-                          : 'border-ink-black/15 opacity-70 hover:opacity-100'
+                          ? 'border-black opacity-100 shadow-sm' 
+                          : 'border-ink-black/15 opacity-60 hover:opacity-100'
                       }`}
                     >
-                      <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                      <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover bw-gloss-img" />
                     </button>
                   ))}
                 </div>
@@ -158,33 +158,33 @@ export const VehicleDetailPage: React.FC = () => {
 
             {/* Quick Capacity Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div className="border border-ink-black/10 rounded-lg p-4 bg-paper-white text-center">
-                <Users className="w-5 h-5 text-vintage-red mx-auto mb-1.5" />
+              <div className="glossy-card rounded-sm p-4 text-center">
+                <Users className="w-5 h-5 text-ink-black mx-auto mb-1.5" />
                 <span className="block text-[10px] font-mono uppercase text-ink-muted">PASSENGER CAPACITY</span>
                 <span className="font-serif font-black text-lg text-ink-black">{vehicle.passengerCapacity} Seater</span>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-4 bg-paper-white text-center">
-                <Briefcase className="w-5 h-5 text-vintage-red mx-auto mb-1.5" />
+              <div className="glossy-card rounded-sm p-4 text-center">
+                <Briefcase className="w-5 h-5 text-ink-black mx-auto mb-1.5" />
                 <span className="block text-[10px] font-mono uppercase text-ink-muted">LUGGAGE CAPACITY</span>
                 <span className="font-serif font-black text-lg text-ink-black">{vehicle.luggageCapacity} Cases</span>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-4 bg-paper-white text-center">
-                <Wind className="w-5 h-5 text-vintage-red mx-auto mb-1.5" />
+              <div className="glossy-card rounded-sm p-4 text-center">
+                <Wind className="w-5 h-5 text-ink-black mx-auto mb-1.5" />
                 <span className="block text-[10px] font-mono uppercase text-ink-muted">CLIMATE SYSTEM</span>
                 <span className="font-serif font-bold text-xs text-ink-black truncate mt-1 block">Ducted A/C</span>
               </div>
 
-              <div className="border border-ink-black/10 rounded-lg p-4 bg-paper-white text-center">
-                <ShieldCheck className="w-5 h-5 text-vintage-red mx-auto mb-1.5" />
+              <div className="glossy-card rounded-sm p-4 text-center">
+                <ShieldCheck className="w-5 h-5 text-ink-black mx-auto mb-1.5" />
                 <span className="block text-[10px] font-mono uppercase text-ink-muted">CHAUFFEUR SERVICE</span>
                 <span className="font-serif font-bold text-xs text-ink-black truncate mt-1 block">Included</span>
               </div>
             </div>
 
             {/* Vehicle Description */}
-            <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-8">
+            <div className="glossy-card rounded-lg p-6 sm:p-8">
               <h3 className="font-serif font-black text-xl text-ink-black uppercase border-b border-ink-black/10 pb-3 mb-4">
                 ABOUT THIS VEHICLE
               </h3>
@@ -193,14 +193,14 @@ export const VehicleDetailPage: React.FC = () => {
               </p>
 
               <div className="mt-6 pt-4 border-t border-ink-black/10">
-                <h4 className="text-xs font-mono uppercase tracking-wider font-bold text-vintage-red mb-2">
+                <h4 className="text-xs font-mono uppercase tracking-wider font-bold text-ink-black mb-2">
                   RECOMMENDED FOR THESE CIRCUITS:
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {vehicle.idealFor.map((useCase, idx) => (
                     <span 
                       key={idx} 
-                      className="px-3 py-1 text-xs font-sans bg-paper-warm rounded border border-ink-black/10 text-ink-charcoal"
+                      className="px-3 py-1 text-xs font-sans bg-paper-warm rounded-sm border border-ink-black/10 text-ink-charcoal font-medium"
                     >
                       {useCase}
                     </span>
@@ -210,14 +210,14 @@ export const VehicleDetailPage: React.FC = () => {
             </div>
 
             {/* Features Checklist */}
-            <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-8">
+            <div className="glossy-card rounded-lg p-6 sm:p-8">
               <h3 className="font-serif font-black text-xl text-ink-black uppercase border-b border-ink-black/10 pb-3 mb-4">
                 CABIN AMENITIES & FEATURES
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {vehicle.features.map((feat, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs text-ink-charcoal">
-                    <CheckCircle2 className="w-4 h-4 text-vintage-red shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-ink-black shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -230,12 +230,12 @@ export const VehicleDetailPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Tariff Card */}
-            <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 shadow-sm">
+            <div className="glossy-card rounded-lg p-6 shadow-sm">
               <span className="vintage-stamp">TARIFF & CLEARANCE</span>
               <h3 className="font-serif font-black text-2xl text-ink-black uppercase mt-1">
                 {vehicle.pricingPlaceholder.indicativeRate}
               </h3>
-              <p className="text-xs text-vintage-red font-serif italic mt-0.5">
+              <p className="text-xs text-ink-muted font-serif italic mt-0.5">
                 {vehicle.pricingPlaceholder.rateType}
               </p>
 
@@ -249,18 +249,18 @@ export const VehicleDetailPage: React.FC = () => {
                   href={directWhatsAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-green-800 text-paper-white text-xs font-mono uppercase tracking-wider rounded hover:bg-green-900 transition-colors shadow-sm"
+                  className="glossy-btn-white w-full flex items-center justify-center gap-2 py-3 text-xs font-mono uppercase tracking-wider rounded-sm shadow-sm"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-emerald-700" />
                   <span>Enquire on WhatsApp</span>
                 </a>
               </div>
             </div>
 
             {/* Inquiry Form */}
-            <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-7 shadow-sm">
+            <div className="glossy-card rounded-lg p-6 sm:p-7 shadow-sm">
               <div className="border-b border-ink-black/10 pb-3 mb-4">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-vintage-red font-bold">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-ink-muted font-bold">
                   DIRECT ENQUIRY
                 </span>
                 <h4 className="font-serif font-black text-xl text-ink-black uppercase mt-0.5">
@@ -270,7 +270,7 @@ export const VehicleDetailPage: React.FC = () => {
 
               {submitted ? (
                 <div className="p-6 bg-paper-warm rounded border border-ink-black/10 text-center space-y-3">
-                  <CheckCircle2 className="w-10 h-10 text-green-700 mx-auto" />
+                  <CheckCircle2 className="w-10 h-10 text-ink-black mx-auto" />
                   <h4 className="font-serif font-bold text-lg text-ink-black">
                     REQUISITION LOGGED
                   </h4>
@@ -279,7 +279,7 @@ export const VehicleDetailPage: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="text-xs font-mono uppercase underline text-vintage-red block mx-auto mt-2"
+                    className="text-xs font-mono uppercase underline text-ink-black font-bold block mx-auto mt-2"
                   >
                     Send Another Requisition
                   </button>
@@ -294,7 +294,7 @@ export const VehicleDetailPage: React.FC = () => {
                   )}
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1">
                       Guest Name *
                     </label>
                     <input
@@ -303,12 +303,12 @@ export const VehicleDetailPage: React.FC = () => {
                       placeholder="e.g. Eleanor Vance"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2 text-xs bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                      className="w-full px-3 py-2 text-xs bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1">
                       Phone Number *
                     </label>
                     <input
@@ -317,13 +317,13 @@ export const VehicleDetailPage: React.FC = () => {
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2 text-xs font-mono bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                      className="w-full px-3 py-2 text-xs font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black"
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
                     <div>
-                      <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1">
+                      <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1">
                         Pickup City
                       </label>
                       <input
@@ -331,11 +331,11 @@ export const VehicleDetailPage: React.FC = () => {
                         placeholder="e.g. City / Airport"
                         value={formData.pickupCity}
                         onChange={(e) => setFormData({ ...formData, pickupCity: e.target.value })}
-                        className="w-full px-2.5 py-2 text-xs bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                        className="w-full px-2.5 py-2 text-xs bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1">
+                      <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1">
                         Est. Dates
                       </label>
                       <input
@@ -343,13 +343,13 @@ export const VehicleDetailPage: React.FC = () => {
                         placeholder="e.g. Nov 20 - Nov 24"
                         value={formData.dates}
                         onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
-                        className="w-full px-2.5 py-2 text-xs bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                        className="w-full px-2.5 py-2 text-xs bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1">
                       Special Requirements or Route Notes
                     </label>
                     <textarea
@@ -357,11 +357,11 @@ export const VehicleDetailPage: React.FC = () => {
                       placeholder="Specify halts, hill roads, or child seating preferences..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3 py-2 text-xs bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                      className="w-full px-3 py-2 text-xs bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black"
                     />
                   </div>
 
-                  <Button type="submit" variant="accent" size="md" fullWidth>
+                  <Button type="submit" variant="primary" size="md" fullWidth>
                     <span>TRANSMIT REQUISITION</span>
                   </Button>
                 </form>
@@ -371,7 +371,7 @@ export const VehicleDetailPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => navigate('/book', { state: { preselectedVehicle: vehicle.id } })}
-                  className="text-xs font-mono uppercase text-vintage-red font-bold hover:underline"
+                  className="text-xs font-mono uppercase text-ink-black font-bold hover:underline"
                 >
                   Or Open Multi-Step Journey Planner →
                 </button>

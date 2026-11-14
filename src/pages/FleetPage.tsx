@@ -79,7 +79,7 @@ export const FleetPage: React.FC = () => {
                 setSearchQuery('');
                 setSelectedCapacity('all');
               }}
-              className="text-vintage-red font-bold uppercase hover:underline"
+              className="text-ink-black font-bold uppercase hover:underline"
             >
               Reset Filters
             </button>
@@ -94,7 +94,7 @@ export const FleetPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="bg-paper-white rounded-lg border border-ink-black/15 p-12 text-center my-8 shadow-sm">
+          <div className="glossy-card rounded-lg p-12 text-center my-8 shadow-sm">
             <h3 className="font-serif font-black text-2xl text-ink-black">
               NO MATCHING VEHICLES FOUND
             </h3>
@@ -118,7 +118,7 @@ export const FleetPage: React.FC = () => {
         )}
 
         {/* Fleet Maintenance Assurance Banner */}
-        <div className="mt-16 bg-paper-white rounded-lg border border-ink-black/15 p-8 shadow-sm">
+        <div className="mt-16 glossy-card rounded-lg p-8 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div className="lg:col-span-8 space-y-2">
               <span className="vintage-stamp">OX QUALITY ASSURANCE</span>
@@ -130,7 +130,7 @@ export const FleetPage: React.FC = () => {
               </p>
             </div>
             <div className="lg:col-span-4 flex justify-start lg:justify-end">
-              <Button to="/book" variant="accent" size="md">
+              <Button to="/book" variant="primary" size="md">
                 <span>REQUISITION YOUR VEHICLE</span>
                 <ArrowUpRight className="w-4 h-4 ml-1" />
               </Button>

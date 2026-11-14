@@ -156,7 +156,7 @@ export const BookPage: React.FC = () => {
         </div>
 
         {/* User-Friendly Visual Stepper */}
-        <div className="bg-paper-white rounded-lg border border-ink-black/15 p-6 mb-8 shadow-sm no-print">
+        <div className="glossy-card rounded-lg p-6 mb-8 no-print">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {stepsList.map((step) => {
               const isActive = currentStep === step.number;
@@ -165,30 +165,30 @@ export const BookPage: React.FC = () => {
               return (
                 <div
                   key={step.number}
-                  className={`p-3 rounded border transition-all ${
+                  className={`p-3.5 rounded-sm border transition-all ${
                     isActive
-                      ? 'border-vintage-red bg-vintage-red/5 text-ink-black shadow-sm ring-1 ring-vintage-red'
+                      ? 'border-ink-black bg-ink-black text-white shadow-glossy-dark'
                       : isPast
-                      ? 'border-emerald-600/30 bg-emerald-50/50 text-ink-black'
-                      : 'border-ink-black/10 bg-paper-warm/50 text-ink-muted'
+                      ? 'border-ink-black/20 bg-paper-warm text-ink-black'
+                      : 'border-ink-black/10 bg-white/60 text-ink-muted'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className={`text-[11px] font-mono font-bold ${
-                      isActive ? 'text-vintage-red' : isPast ? 'text-emerald-700' : 'text-ink-muted'
+                      isActive ? 'text-white' : isPast ? 'text-ink-black' : 'text-ink-muted'
                     }`}>
                       STEP 0{step.number}
                     </span>
                     {isPast ? (
-                      <Check className="w-4 h-4 text-emerald-700" />
+                      <Check className="w-4 h-4 text-ink-black" />
                     ) : (
-                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-vintage-red' : 'bg-ink-black/20'}`} />
+                      <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-white' : 'bg-ink-black/20'}`} />
                     )}
                   </div>
-                  <p className="font-serif font-bold text-xs sm:text-sm text-ink-black">
+                  <p className="font-serif font-bold text-xs sm:text-sm">
                     {step.title}
                   </p>
-                  <p className="text-[10px] text-ink-muted hidden sm:block">
+                  <p className={`text-[10px] hidden sm:block ${isActive ? 'text-ink-light' : 'text-ink-muted'}`}>
                     {step.desc}
                   </p>
                 </div>
@@ -201,16 +201,16 @@ export const BookPage: React.FC = () => {
         {/* CONFIRMATION SCREEN (When submitted) */}
         {/* ============================================================== */}
         {isSubmitted ? (
-          <div className="bg-paper-white rounded-lg border-2 border-ink-black p-6 sm:p-10 shadow-lg relative">
+          <div className="glossy-card rounded-lg p-6 sm:p-10 shadow-glossy-lg relative">
             
-            <div className="flex flex-wrap items-center justify-between border-b border-ink-black/15 pb-5 mb-6 gap-3">
+            <div className="flex flex-wrap items-center justify-between border-b-2 border-ink-black pb-5 mb-6 gap-3">
               <div>
                 <span className="vintage-stamp">REQUISITION LOGGED</span>
                 <h2 className="text-2xl sm:text-3xl font-serif font-black uppercase text-ink-black mt-1">
                   OFFICIAL TRAVEL DISPATCH VOUCHER
                 </h2>
                 <p className="text-xs font-mono text-ink-muted">
-                  REGISTRY NUMBER: <span className="font-bold text-vintage-red">{requisitionId}</span>
+                  REGISTRY NUMBER: <span className="font-bold text-ink-black">{requisitionId}</span>
                 </p>
               </div>
 
@@ -220,20 +220,20 @@ export const BookPage: React.FC = () => {
             </div>
 
             {/* Success Banner */}
-            <div className="p-4 bg-emerald-50 rounded border border-emerald-200 mb-6 flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+            <div className="p-4 bg-paper-warm rounded-sm border border-ink-black/15 mb-6 flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-ink-black shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-serif font-bold text-sm text-emerald-900 uppercase">
+                <h4 className="font-serif font-bold text-sm text-ink-black uppercase">
                   Requisition Recorded in Central Dispatch Queue
                 </h4>
-                <p className="text-xs text-emerald-800 mt-1 leading-relaxed font-sans">
+                <p className="text-xs text-ink-muted mt-1 leading-relaxed font-sans">
                   Our route coordinator will contact you via {formData.communicationPreference.toUpperCase()} at <strong className="text-ink-black">{formData.phoneNumber}</strong> with an official itinerary and vehicle confirmation.
                 </p>
               </div>
             </div>
 
             {/* Ticket Summary */}
-            <div className="bg-paper-warm rounded-lg border border-ink-black/15 p-6 space-y-4 mb-8">
+            <div className="bg-paper-warm rounded-sm border border-ink-black/15 p-6 space-y-4 mb-8">
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-4 border-b border-ink-black/10 text-xs font-mono">
                 <div>
@@ -244,7 +244,7 @@ export const BookPage: React.FC = () => {
 
                 <div>
                   <span className="text-ink-muted uppercase block text-[10px]">SERVICE CLASSIFICATION:</span>
-                  <span className="font-bold text-sm text-vintage-red uppercase">
+                  <span className="font-bold text-sm text-ink-black uppercase">
                     {formData.tripType} Highway Journey
                   </span>
                   <p className="text-[11px] text-ink-muted">Chauffeur Navigation Service</p>
@@ -292,7 +292,7 @@ export const BookPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="px-4 py-2 bg-paper-warm border border-ink-black/20 rounded text-xs font-mono uppercase tracking-wider hover:bg-paper-tan transition-colors inline-flex items-center gap-1.5"
+                  className="glossy-btn-white px-4 py-2 text-xs font-mono uppercase tracking-wider rounded-sm inline-flex items-center gap-1.5"
                 >
                   <Printer className="w-4 h-4 text-ink-black" />
                   <span>Print Voucher</span>
@@ -304,9 +304,9 @@ export const BookPage: React.FC = () => {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-green-800 text-paper-white text-xs font-mono uppercase tracking-wider rounded hover:bg-green-900 transition-colors inline-flex items-center gap-1.5"
+                  className="glossy-btn-black px-4 py-2 text-xs font-mono uppercase tracking-wider rounded-sm inline-flex items-center gap-1.5"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-emerald-400" />
                   <span>Message on WhatsApp</span>
                 </a>
               </div>
@@ -334,7 +334,7 @@ export const BookPage: React.FC = () => {
                     communicationPreference: 'whatsapp',
                   });
                 }}
-                className="text-xs font-mono uppercase text-vintage-red hover:underline font-bold"
+                className="text-xs font-mono uppercase text-ink-black hover:underline font-bold"
               >
                 Plan Another Journey →
               </button>
@@ -344,13 +344,13 @@ export const BookPage: React.FC = () => {
         ) : (
 
           /* FORM CONTAINER */
-          <form onSubmit={handleSubmit} className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-10 shadow-sm">
+          <form onSubmit={handleSubmit} className="glossy-card rounded-lg p-6 sm:p-10 shadow-sm">
             
             {/* STEP 1: ROUTE DETAILS */}
             {currentStep === 1 && (
               <div className="space-y-6">
                 <div className="border-b border-ink-black/10 pb-4">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-vintage-red font-bold">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-bold">
                     STEP 01 OF 04
                   </span>
                   <h3 className="font-serif font-black text-2xl text-ink-black uppercase mt-1">
@@ -363,7 +363,7 @@ export const BookPage: React.FC = () => {
 
                 {/* Classification Buttons */}
                 <div>
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-2">
                     Classification of Passage *
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -377,15 +377,15 @@ export const BookPage: React.FC = () => {
                         key={type.key}
                         type="button"
                         onClick={() => setFormData({ ...formData, tripType: type.key as any })}
-                        className={`p-3 text-left rounded border transition-all ${
+                        className={`p-3 text-left rounded-sm border transition-all ${
                           formData.tripType === type.key
-                            ? 'border-ink-black bg-ink-black text-paper-white shadow-sm'
-                            : 'border-ink-black/15 bg-paper-warm/60 text-ink-black hover:border-ink-black'
+                            ? 'glossy-btn-black text-white shadow-glossy-dark'
+                            : 'border-ink-black/15 bg-white text-ink-black hover:border-ink-black'
                         }`}
                       >
                         <span className="font-serif font-bold text-xs block">{type.label}</span>
                         <span className={`text-[10px] font-mono block mt-0.5 ${
-                          formData.tripType === type.key ? 'text-vintage-red' : 'text-ink-muted'
+                          formData.tripType === type.key ? 'text-ink-light' : 'text-ink-muted'
                         }`}>
                           {type.desc}
                         </span>
@@ -397,19 +397,19 @@ export const BookPage: React.FC = () => {
                 {/* Pickup & Dropoff Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Pickup Point / City *
                     </label>
                     <div className="relative">
-                      <MapPin className="w-4 h-4 text-vintage-red absolute left-3 top-3 pointer-events-none" />
+                      <MapPin className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="text"
                         placeholder="e.g. Hotel / Residence / City"
                         value={formData.pickupLocation}
                         onChange={(e) => setFormData({ ...formData, pickupLocation: e.target.value })}
-                        className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                        className={`w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-sm border ${
                           errors.pickupLocation ? 'border-red-500' : 'border-ink-black/20'
-                        } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                        } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black shadow-sm`}
                       />
                     </div>
                     {errors.pickupLocation && (
@@ -420,19 +420,19 @@ export const BookPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Destination / Drop-off Point {formData.tripType === 'local' ? '(Optional)' : '*'}
                     </label>
                     <div className="relative">
-                      <MapPin className="w-4 h-4 text-vintage-red absolute left-3 top-3 pointer-events-none" />
+                      <MapPin className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="text"
                         placeholder={formData.tripType === 'local' ? 'Local City Disposal' : 'e.g. Hill Station / Destination'}
                         value={formData.dropoffLocation}
                         onChange={(e) => setFormData({ ...formData, dropoffLocation: e.target.value })}
-                        className={`w-full pl-9 pr-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                        className={`w-full pl-9 pr-3 py-2.5 text-sm bg-white rounded-sm border ${
                           errors.dropoffLocation ? 'border-red-500' : 'border-ink-black/20'
-                        } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                        } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black shadow-sm`}
                       />
                     </div>
                     {errors.dropoffLocation && (
@@ -446,19 +446,19 @@ export const BookPage: React.FC = () => {
                 {/* Dates & Times */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Departure Date *
                     </label>
                     <div className="relative">
-                      <Calendar className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                      <Calendar className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="date"
                         min={minDateStr}
                         value={formData.pickupDate}
                         onChange={(e) => setFormData({ ...formData, pickupDate: e.target.value })}
-                        className={`w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border ${
+                        className={`w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border ${
                           errors.pickupDate ? 'border-red-500' : 'border-ink-black/20'
-                        } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                        } focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black shadow-sm`}
                       />
                     </div>
                     {errors.pickupDate && (
@@ -469,7 +469,7 @@ export const BookPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Return Date (Optional)
                     </label>
                     <div className="relative">
@@ -479,22 +479,22 @@ export const BookPage: React.FC = () => {
                         min={formData.pickupDate || minDateStr}
                         value={formData.returnDate}
                         onChange={(e) => setFormData({ ...formData, returnDate: e.target.value })}
-                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Departure Time
                     </label>
                     <div className="relative">
-                      <Clock className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                      <Clock className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="time"
                         value={formData.pickupTime}
                         onChange={(e) => setFormData({ ...formData, pickupTime: e.target.value })}
-                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black shadow-sm"
                       />
                     </div>
                   </div>
@@ -507,7 +507,7 @@ export const BookPage: React.FC = () => {
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div className="border-b border-ink-black/10 pb-4">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-vintage-red font-bold">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-bold">
                     STEP 02 OF 04
                   </span>
                   <h3 className="font-serif font-black text-2xl text-ink-black uppercase mt-1">
@@ -520,7 +520,7 @@ export const BookPage: React.FC = () => {
 
                 {/* Category Cards */}
                 <div>
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-2">
                     Automotive Category *
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -532,22 +532,24 @@ export const BookPage: React.FC = () => {
                         <div
                           key={cat}
                           onClick={() => setFormData({ ...formData, vehicleCategory: cat as VehicleCategory })}
-                          className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                          className={`p-4 rounded-sm border-2 cursor-pointer transition-all ${
                             isSelected
-                              ? 'border-vintage-red bg-vintage-red/5 shadow-sm'
-                              : 'border-ink-black/15 bg-paper-warm/50 hover:border-ink-black/40'
+                              ? 'border-ink-black bg-ink-black text-white shadow-glossy-dark'
+                              : 'border-ink-black/15 bg-white hover:border-ink-black'
                           }`}
                         >
                           <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                            <span className="font-bold text-ink-black">{cat}</span>
+                            <span className="font-bold">{cat}</span>
                             {matched && (
-                              <span className="text-vintage-red font-semibold">
+                              <span className={isSelected ? 'text-ink-light' : 'text-ink-muted'}>
                                 {matched.passengerCapacity} Pax
                               </span>
                             )}
                           </div>
                           {matched && (
-                            <p className="text-xs font-serif italic text-ink-muted line-clamp-1">
+                            <p className={`text-xs font-serif italic line-clamp-1 ${
+                              isSelected ? 'text-ink-light' : 'text-ink-muted'
+                            }`}>
                               {matched.tagline}
                             </p>
                           )}
@@ -565,35 +567,35 @@ export const BookPage: React.FC = () => {
                 {/* Capacity Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Number of Passengers *
                     </label>
                     <div className="relative">
-                      <Users className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                      <Users className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="number"
                         min={1}
                         max={40}
                         value={formData.passengers}
                         onChange={(e) => setFormData({ ...formData, passengers: parseInt(e.target.value, 10) || 1 })}
-                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none"
+                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none shadow-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Approx. Luggage Bags (Suitcases)
                     </label>
                     <div className="relative">
-                      <Briefcase className="w-4 h-4 text-ink-charcoal absolute left-3 top-3 pointer-events-none" />
+                      <Briefcase className="w-4 h-4 text-ink-black absolute left-3 top-3 pointer-events-none" />
                       <input
                         type="number"
                         min={0}
                         max={30}
                         value={formData.luggageCount}
                         onChange={(e) => setFormData({ ...formData, luggageCount: parseInt(e.target.value, 10) || 0 })}
-                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none"
+                        className="w-full pl-9 pr-3 py-2.5 text-sm font-mono bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none shadow-sm"
                       />
                     </div>
                   </div>
@@ -601,7 +603,7 @@ export const BookPage: React.FC = () => {
 
                 {/* In-Cabin Requests */}
                 <div>
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                     Special In-Cabin Requirements (Optional)
                   </label>
                   <textarea
@@ -609,7 +611,7 @@ export const BookPage: React.FC = () => {
                     placeholder="E.g., child booster seat, senior citizen boarding assistance, scenic rest stops..."
                     value={formData.specialRequests}
                     onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
-                    className="w-full px-3 py-2 text-sm bg-paper-warm/60 rounded border border-ink-black/20 focus:border-ink-black focus:outline-none focus:bg-paper-white"
+                    className="w-full px-3 py-2 text-sm bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none shadow-sm"
                   />
                 </div>
 
@@ -620,7 +622,7 @@ export const BookPage: React.FC = () => {
             {currentStep === 3 && (
               <div className="space-y-6">
                 <div className="border-b border-ink-black/10 pb-4">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-vintage-red font-bold">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-bold">
                     STEP 03 OF 04
                   </span>
                   <h3 className="font-serif font-black text-2xl text-ink-black uppercase mt-1">
@@ -632,7 +634,7 @@ export const BookPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                     Full Legal Name *
                   </label>
                   <input
@@ -640,9 +642,9 @@ export const BookPage: React.FC = () => {
                     placeholder="e.g. Arthur Pendelton"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className={`w-full px-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                    className={`w-full px-3 py-2.5 text-sm bg-white rounded-sm border ${
                       errors.fullName ? 'border-red-500' : 'border-ink-black/20'
-                    } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                    } focus:border-ink-black focus:outline-none shadow-sm`}
                   />
                   {errors.fullName && (
                     <p className="text-[11px] text-red-600 mt-1 flex items-center gap-1 font-mono">
@@ -653,7 +655,7 @@ export const BookPage: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Phone Number (Mobile) *
                     </label>
                     <input
@@ -661,9 +663,9 @@ export const BookPage: React.FC = () => {
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phoneNumber}
                       onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
-                      className={`w-full px-3 py-2.5 text-sm font-mono bg-paper-warm/60 rounded border ${
+                      className={`w-full px-3 py-2.5 text-sm font-mono bg-white rounded-sm border ${
                         errors.phoneNumber ? 'border-red-500' : 'border-ink-black/20'
-                      } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                      } focus:border-ink-black focus:outline-none shadow-sm`}
                     />
                     {errors.phoneNumber && (
                       <p className="text-[11px] text-red-600 mt-1 flex items-center gap-1 font-mono">
@@ -673,7 +675,7 @@ export const BookPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-1.5">
                       Email Address *
                     </label>
                     <input
@@ -681,9 +683,9 @@ export const BookPage: React.FC = () => {
                       placeholder="e.g. traveler@domain.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`w-full px-3 py-2.5 text-sm bg-paper-warm/60 rounded border ${
+                      className={`w-full px-3 py-2.5 text-sm bg-white rounded-sm border ${
                         errors.email ? 'border-red-500' : 'border-ink-black/20'
-                      } focus:border-ink-black focus:outline-none focus:bg-paper-white`}
+                      } focus:border-ink-black focus:outline-none shadow-sm`}
                     />
                     {errors.email && (
                       <p className="text-[11px] text-red-600 mt-1 flex items-center gap-1 font-mono">
@@ -694,7 +696,7 @@ export const BookPage: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-ink-charcoal uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-bold text-ink-charcoal uppercase tracking-wider mb-2">
                     Preferred Mode for Tariff Quotation
                   </label>
                   <div className="flex flex-wrap gap-4 text-xs font-mono">
@@ -704,7 +706,7 @@ export const BookPage: React.FC = () => {
                         name="commPref"
                         checked={formData.communicationPreference === 'whatsapp'}
                         onChange={() => setFormData({ ...formData, communicationPreference: 'whatsapp' })}
-                        className="text-vintage-red focus:ring-0"
+                        className="text-ink-black focus:ring-0"
                       />
                       <span>WhatsApp Message (Fastest)</span>
                     </label>
@@ -715,7 +717,7 @@ export const BookPage: React.FC = () => {
                         name="commPref"
                         checked={formData.communicationPreference === 'phone'}
                         onChange={() => setFormData({ ...formData, communicationPreference: 'phone' })}
-                        className="text-vintage-red focus:ring-0"
+                        className="text-ink-black focus:ring-0"
                       />
                       <span>Telephone Call</span>
                     </label>
@@ -726,7 +728,7 @@ export const BookPage: React.FC = () => {
                         name="commPref"
                         checked={formData.communicationPreference === 'email'}
                         onChange={() => setFormData({ ...formData, communicationPreference: 'email' })}
-                        className="text-vintage-red focus:ring-0"
+                        className="text-ink-black focus:ring-0"
                       />
                       <span>Formal Email Statement</span>
                     </label>
@@ -740,7 +742,7 @@ export const BookPage: React.FC = () => {
             {currentStep === 4 && (
               <div className="space-y-6">
                 <div className="border-b border-ink-black/10 pb-4">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-vintage-red font-bold">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-bold">
                     STEP 04 OF 04
                   </span>
                   <h3 className="font-serif font-black text-2xl text-ink-black uppercase mt-1">
@@ -752,14 +754,14 @@ export const BookPage: React.FC = () => {
                 </div>
 
                 {/* Clean Review Summary Card */}
-                <div className="bg-paper-warm/70 rounded-lg border border-ink-black/15 p-6 space-y-4">
+                <div className="bg-paper-warm rounded-sm border border-ink-black/15 p-6 space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-4 border-b border-ink-black/10 text-xs font-mono">
                     <div>
                       <span className="text-ink-muted uppercase block text-[10px]">ROUTE:</span>
                       <p className="font-bold text-sm text-ink-black mt-0.5">
                         {formData.pickupLocation} → {formData.dropoffLocation || 'City Local'}
                       </p>
-                      <span className="text-vintage-red font-semibold uppercase text-[10px]">
+                      <span className="text-ink-black font-semibold uppercase text-[10px]">
                         {formData.tripType} Passage
                       </span>
                     </div>
@@ -801,8 +803,8 @@ export const BookPage: React.FC = () => {
                   )}
                 </div>
 
-                <div className="p-4 bg-paper-warm rounded border border-ink-black/15 text-xs text-ink-muted flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-vintage-red shrink-0 mt-0.5" />
+                <div className="p-4 bg-paper-warm rounded-sm border border-ink-black/15 text-xs text-ink-muted flex items-start gap-3">
+                  <ShieldCheck className="w-5 h-5 text-ink-black shrink-0 mt-0.5" />
                   <p className="leading-relaxed">
                     By submitting this requisition, you request an official availability confirmation and quotation from Ox Tours and Travels. No advance card charges are executed at this step.
                   </p>
@@ -817,7 +819,7 @@ export const BookPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="px-4 py-2 rounded border border-ink-black/20 text-xs font-mono uppercase tracking-wider text-ink-black hover:bg-paper-warm transition-colors inline-flex items-center gap-1.5"
+                  className="glossy-btn-white px-4 py-2 text-xs font-mono uppercase tracking-wider rounded-sm inline-flex items-center gap-1.5"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
                   <span>Previous</span>
@@ -830,7 +832,7 @@ export const BookPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-6 py-2.5 rounded bg-vintage-red hover:bg-vintage-crimson text-paper-white text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-all shadow-sm active:translate-y-0.5"
+                  className="glossy-btn-black px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm inline-flex items-center gap-1.5"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -838,7 +840,7 @@ export const BookPage: React.FC = () => {
               ) : (
                 <button
                   type="submit"
-                  className="px-6 py-2.5 rounded bg-vintage-red hover:bg-vintage-crimson text-paper-white text-xs font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-all shadow-sm active:translate-y-0.5"
+                  className="glossy-btn-black px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm inline-flex items-center gap-2"
                 >
                   <FileText className="w-4 h-4" />
                   <span>TRANSMIT REQUISITION</span>

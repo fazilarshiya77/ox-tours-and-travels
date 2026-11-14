@@ -8,40 +8,42 @@ export default {
     extend: {
       colors: {
         paper: {
-          warm: '#F5F0E6',
-          white: '#FAF9F5',
-          aged: '#D8CFBE',
-          tan: '#EFE9DD',
-          rule: '#E2D9C8',
+          warm: '#F7F6F3',
+          white: '#FFFFFF',
+          aged: '#EAE7E1',
+          tan: '#E3DFD7',
+          rule: '#E0DDD5',
         },
         ink: {
-          black: '#171717',
-          charcoal: '#292929',
-          muted: '#524F49',
-          grey: '#85827B',
-          light: '#A39F97',
+          black: '#0A0A0A',
+          charcoal: '#1A1A1A',
+          deep: '#141414',
+          muted: '#5A5A5A',
+          grey: '#767676',
+          light: '#9E9E9E',
         },
         vintage: {
-          red: '#9F3029',
-          crimson: '#82241E',
-          accent: '#B83A32',
-          gold: '#C59A53',
+          red: '#171717', // High-fashion monochrome primary
+          accent: '#8C1D18', // Tasteful deep ruby collector accent when needed
+          silver: '#E2E8F0',
+          chrome: '#F1F5F9',
         }
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', '"Times New Roman"', 'serif'],
-        display: ['"Playfair Display"', 'Bodoni Moda', 'Georgia', 'serif'],
+        display: ['"Bodoni Moda"', '"Playfair Display"', 'Georgia', 'serif'],
         sans: ['Inter', '"DM Sans"', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"Courier New"', 'monospace'],
       },
       boxShadow: {
-        'paper': '0 1px 3px rgba(23, 23, 23, 0.05), 0 10px 25px -5px rgba(23, 23, 23, 0.04)',
-        'paper-lg': '0 20px 40px -15px rgba(23, 23, 23, 0.08)',
-        'editorial': '3px 3px 0px #171717',
-        'editorial-red': '3px 3px 0px #9F3029',
+        'glossy': '0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+        'glossy-lg': '0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
+        'glossy-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        'editorial': '3px 3px 0px #0A0A0A',
       },
       backgroundImage: {
-        'newsprint-dot': 'radial-gradient(#85827b 0.75px, transparent 0.75px)',
+        'glossy-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%)',
+        'sheen': 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)',
       }
     },
   },

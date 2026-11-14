@@ -25,7 +25,7 @@ export const ServicesPage: React.FC = () => {
               <article
                 key={service.id}
                 id={service.slug}
-                className="bg-paper-white rounded-lg border border-ink-black/15 p-6 sm:p-8 lg:p-10 shadow-sm"
+                className="glossy-card rounded-lg p-6 sm:p-8 lg:p-10 shadow-sm"
               >
                 {/* Header Tag */}
                 <div className="flex items-center justify-between border-b border-ink-black/10 pb-3 mb-6 text-xs font-mono">
@@ -33,25 +33,25 @@ export const ServicesPage: React.FC = () => {
                     <span className="vintage-stamp">
                       SERVICE NO. {index + 1}
                     </span>
-                    <span className="text-vintage-red font-bold uppercase">
+                    <span className="text-ink-black font-bold uppercase">
                       {service.editorialLabel}
                     </span>
                   </div>
-                  <span className="px-2.5 py-0.5 bg-paper-warm rounded border border-ink-black/10 text-ink-charcoal uppercase font-semibold">
+                  <span className="px-2.5 py-0.5 bg-paper-warm rounded-sm border border-ink-black/10 text-ink-charcoal uppercase font-bold text-[10px]">
                     {service.badge}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   
-                  {/* Image Column */}
+                  {/* Image Column with Black & White Glossy Treatment */}
                   <div className={`lg:col-span-5 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                    <div className="relative rounded-lg overflow-hidden border border-ink-black/10 shadow-sm bg-ink-charcoal">
+                    <div className="relative rounded-sm overflow-hidden border border-ink-black/20 shadow-sm bg-black glass-reflection">
                       <div className="aspect-[4/3] w-full overflow-hidden">
                         <img
                           src={service.image}
                           alt={service.title}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                          className="w-full h-full object-cover bw-gloss-img"
                           loading="lazy"
                         />
                       </div>
@@ -64,7 +64,7 @@ export const ServicesPage: React.FC = () => {
                       {service.title}
                     </h2>
 
-                    <p className="font-serif italic text-sm sm:text-base text-vintage-red">
+                    <p className="font-serif italic text-sm sm:text-base text-ink-muted">
                       &ldquo;{service.tagline}&rdquo;
                     </p>
 
@@ -80,7 +80,7 @@ export const ServicesPage: React.FC = () => {
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-ink-charcoal font-sans">
                         {service.benefits.map((benefit, bIdx) => (
                           <li key={bIdx} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-vintage-red shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-4 h-4 text-ink-black shrink-0 mt-0.5" />
                             <span className="leading-snug">{benefit}</span>
                           </li>
                         ))}
@@ -89,7 +89,7 @@ export const ServicesPage: React.FC = () => {
 
                     {/* Action Buttons */}
                     <div className="pt-4 border-t border-ink-black/10 flex flex-wrap items-center gap-3">
-                      <Button to="/book" variant="accent" size="sm">
+                      <Button to="/book" variant="primary" size="sm">
                         <span>REQUISITION THIS SERVICE</span>
                         <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
                       </Button>
@@ -107,7 +107,7 @@ export const ServicesPage: React.FC = () => {
         </div>
 
         {/* Custom Tour Banner */}
-        <div className="mt-16 bg-paper-white rounded-lg border border-ink-black/15 p-8 text-center shadow-sm">
+        <div className="mt-16 glossy-card rounded-lg p-8 text-center shadow-sm">
           <span className="vintage-stamp">BESPOKE ARCHITECTURE</span>
           <h3 className="mt-2 text-2xl sm:text-3xl font-serif font-black text-ink-black uppercase">
             HAVE A CUSTOM MULTI-CITY OR EVENT SCHEDULE?
@@ -116,7 +116,7 @@ export const ServicesPage: React.FC = () => {
             Our route planners coordinate interstate logistics, toll clearances, chauffeur rotations, and overnight hotel stays for extended tours.
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <Button to="/book" variant="accent" size="md">
+            <Button to="/book" variant="primary" size="md">
               <Compass className="w-4 h-4 mr-1.5" />
               <span>CUSTOMIZE YOUR TOUR ITINERARY</span>
             </Button>
