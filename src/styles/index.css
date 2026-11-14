@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  
+  body {
+    background-color: #FAF9F5;
+    color: #171717;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-display {
+    font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Refined Editorial Dividers & Accents */
+.editorial-rule {
+  height: 1px;
+  background-color: rgba(23, 23, 23, 0.12);
+}
+
+.editorial-rule-dark {
+  height: 1.5px;
+  background-color: #171717;
+}
+
+.editorial-rule-red {
+  height: 2px;
+  background-color: #9F3029;
+}
+
+/* Subtle, Elegant Drop Cap */
+.editorial-dropcap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  float: left;
+  font-size: 3.2rem;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-bottom: 2px;
+  color: #9F3029;
+  font-weight: 700;
+}
+
+/* Newspaper Multi-Column Layouts */
+.editorial-columns-2 {
+  column-count: 1;
+  column-gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .editorial-columns-2 {
+    column-count: 2;
+    column-gap: 3rem;
+    column-rule: 1px solid rgba(23, 23, 23, 0.12);
+  }
+}
+
+/* Refined Vintage Badges */
+.vintage-stamp {
+  border: 1px solid rgba(159, 48, 41, 0.4);
+  background-color: rgba(159, 48, 41, 0.05);
+  color: #9F3029;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  padding: 4px 10px;
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.ink-stamp {
+  border: 1px solid rgba(23, 23, 23, 0.25);
+  background-color: #F5F0E6;
+  color: #171717;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  padding: 4px 10px;
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF9F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4BFB5;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #171717;
+}
+
+/* Clean Print styles */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
