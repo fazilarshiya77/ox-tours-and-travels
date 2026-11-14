@@ -1,43 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../../data/siteConfig';
-import { PhoneCall, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 export const Masthead: React.FC = () => {
-  const today = new Intl.DateTimeFormat('en-US', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  }).format(new Date());
-
   return (
     <header className="bg-paper-white border-b border-ink-black/15 select-none relative shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Subtle top information row */}
-        <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-ink-muted py-2 border-b border-ink-black/10">
-          <div className="flex items-center gap-2 sm:gap-4">
-            <span className="font-bold text-ink-black px-1.5 py-0.5 bg-paper-warm border border-ink-black/10 rounded-sm">
-              {SITE_CONFIG.volume}
-            </span>
-            <span className="text-ink-black/20">•</span>
-            <span className="hidden sm:inline text-ink-charcoal">{today}</span>
-            <span className="text-ink-black/20 hidden sm:inline">•</span>
-            <span className="text-ink-black font-semibold">{SITE_CONFIG.edition}</span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a 
-              href={`tel:${SITE_CONFIG.contact.primaryPhone.replace(/\s+/g, '')}`}
-              className="hover:text-ink-black transition-colors flex items-center gap-1.5 font-semibold text-ink-charcoal"
-            >
-              <PhoneCall className="w-3 h-3 text-ink-black" />
-              <span>{SITE_CONFIG.contact.primaryPhone}</span>
-            </a>
-          </div>
-        </div>
-
         {/* Newspaper Center Masthead Wordmark */}
         <div className="text-center py-6 sm:py-8">
           <Link to="/" className="group inline-block focus:outline-none">
