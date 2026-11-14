@@ -48,11 +48,12 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(1).jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(1).jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.25%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(2).jpeg'
       ],
       alt: 'Toyota Innova Crysta - Ox Tours and Travels fleet'
     }
@@ -96,11 +97,12 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.16%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.16%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.18%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM%20(1).jpeg'
       ],
       alt: '9 Seater Tempo Traveller - Ox Tours and Travels fleet'
     }
@@ -122,7 +124,7 @@ export const FLEET_DATA: Vehicle[] = [
       'Wedding Guest Shuttle Logistics'
     ],
     features: [
-      'Maharaja-Style Wide Pushback Luxury Recliners',
+      'Maharaja-Style Wide Pushback Luxury Recliners with Royal Crest',
       'Deep Roof-Mounted Air Conditioning Ducts',
       'Curtained Panoramic Side Windows for Scenic Vistas',
       'Individual Reading Spotlights at Every Seat',
@@ -144,11 +146,11 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.23%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.23%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM%20(1).jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.22%20PM.jpeg'
       ],
       alt: '12 Seater Luxury Tempo Traveller - Ox Tours and Travels fleet'
     }
@@ -192,11 +194,11 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM%20(1).jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM%20(1).jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM%20(1).jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.22%20PM%20(1).jpeg'
       ],
       alt: '17 Seater Tempo Traveller - Ox Tours and Travels fleet'
     }
@@ -240,11 +242,11 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.32%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.32%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.33%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.33%20PM%20(1).jpeg'
       ],
       alt: '21 Seater Luxury Bus - Ox Tours and Travels fleet'
     }
@@ -288,11 +290,12 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.37%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.37%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.19%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.36%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.19%20PM%20(1).jpeg'
       ],
       alt: '9 Seater Luxury Urbania Executive Class - Ox Tours and Travels fleet'
     }
@@ -336,11 +339,12 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.39%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.19%20PM%20(1).jpeg'
       ],
       alt: '12 Seater Luxury Urbania - Ox Tours and Travels fleet'
     }
@@ -384,11 +388,11 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: 'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1200&auto=format&fit=crop',
+      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
       gallery: [
-        'https://images.unsplash.com/photo-1527786356703-4b100091cd2c?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1200&auto=format&fit=crop'
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
+        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.20%20PM.jpeg'
       ],
       alt: '16 Seater Luxury Urbania - Ox Tours and Travels fleet'
     }

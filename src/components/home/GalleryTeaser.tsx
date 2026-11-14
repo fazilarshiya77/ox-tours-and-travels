@@ -78,3 +78,4 @@ export const GalleryTeaser: React.FC = () => {
     </section>
   );
 };
+
