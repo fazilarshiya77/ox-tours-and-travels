@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { HERO_PHOTO, HERO_STATS } from '../../data/homeContent';
 import { Button } from '../ui/Button';
+import { CountUp } from '../ui/CountUp';
 import { Reveal } from '../ui/Reveal';
 
 /**
@@ -55,7 +56,9 @@ export const Hero: React.FC<{ className?: string }> = ({ className }) => (
         {HERO_STATS.map((stat) => (
           <div key={stat.label} className="flex flex-col-reverse px-3 py-4 text-center sm:py-5">
             <dt className="folio mt-1">{stat.label}</dt>
-            <dd className="font-serif text-3xl font-black leading-none sm:text-4xl">{stat.value}</dd>
+            <dd className="font-serif text-3xl font-black leading-none sm:text-4xl">
+              <CountUp value={stat.value} />
+            </dd>
           </div>
         ))}
       </dl>
