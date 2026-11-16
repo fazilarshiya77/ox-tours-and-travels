@@ -28,13 +28,13 @@ Single-page application: React 18, TypeScript, Tailwind CSS 3, Vite 6.
 | Package | Purpose |
 |---|---|
 | `react`, `react-dom` | UI |
-| `react-router-dom` (v6) | Client-side routing |
+| `react-router-dom` (v7) | Client-side routing |
 | `lucide-react` | Line icons |
 | `clsx` + `tailwind-merge` | The `cn()` class-name helper (`src/lib/cn.ts`) |
 | `tailwindcss`, `postcss`, `autoprefixer` | Styling pipeline |
 | `typescript`, `vite`, `@vitejs/plugin-react` | Build tooling |
 
-`framer-motion` is installed but not used; all animations are plain CSS plus one small scroll observer (`useReveal`).
+There is no animation library; all animations are plain CSS plus one small scroll observer (`useReveal`).
 
 ### NPM scripts
 - `npm run dev` — dev server on port 3000.
@@ -72,6 +72,7 @@ src/
 │   │   ├── MobileDrawer.tsx    # Slide-in menu for small screens
 │   │   ├── Footer.tsx
 │   │   ├── Page.tsx            # Standard page container (width + padding)
+│   │   ├── ErrorBoundary.tsx   # Shows a notice instead of a blank screen if a page crashes
 │   │   ├── ScrollRestoration.tsx  # Opens each new page at the top
 │   │   └── BackToTopButton.tsx
 │   │
@@ -85,6 +86,7 @@ src/
 │   │   ├── FilterPills.tsx     # Category filter buttons
 │   │   ├── SummaryList.tsx     # Label / value rows
 │   │   ├── Reveal.tsx          # Slow scroll-in animation wrapper
+│   │   ├── CountUp.tsx         # Counts a figure up from zero when it scrolls into view
 │   │   ├── Notices.tsx         # EmptyState, SuccessNotice, CtaBanner
 │   │   ├── Lightbox.tsx        # Fullscreen photo viewer
 │   │   └── WhatsAppButton.tsx  # Floating WhatsApp icon (bottom-right)
@@ -229,6 +231,7 @@ Wrap any block in `<Reveal>` (`components/ui/Reveal.tsx`) to make it rise and fa
 
 ### UI building blocks
 - **`Hero`** (`components/home`) — the front-page hero. Headline, deck and two buttons on a black panel; the photo beside it (below it on phones); a four-fact strip underneath. Text and photo come from `HERO_PHOTO` / `HERO_STATS` in `homeContent.ts`; the headline itself is in `Hero.tsx`.
+- **`CountUp`** — give it the final text (`"8"`, `"7–21"`, `"100%"`) and every number in it counts up from zero once it scrolls into view. Used for the hero's four facts.
 - **`Button`** — `variant`: `primary`, `secondary`, `inverse` and `inverse-outline` (for dark backgrounds), `link`. Pass `to` for an internal page, `href` for an external address, or neither for a plain button.
 - **`FormFields`** — every field has a linked `<label>`, optional hint, and an error message announced to screen readers. Validation is done in code, not by the browser.
 - **`Lightbox`** — arrow keys, swipe, Escape, click-outside to close; shows each photo's caption.
@@ -351,7 +354,20 @@ A request number (`OX-REQ-<year>-<4 digits>`) is generated in the browser and th
 - `public/robots.txt` allows all crawlers and points to the sitemap.
 - `public/sitemap.xml` lists the 6 main pages and all 8 vehicle pages. **Add a line when a vehicle is added.**
 
-Not yet done: the site is a client-rendered SPA, so the hosting provider must be configured to serve `index.html` for every path (otherwise refreshing `/fleet` returns 404).
+The web address `https://oxtoursandtravels.com` is written into `index.html` (Open Graph tags), `robots.txt` and `sitemap.xml`. **If the site goes live on a different address, change it in those three files.**
+
+### Deployment (Vercel)
+
+`vercel.json` in the project root configures the deployment:
+
+- **Build** — `npm run build`, output folder `dist`.
+- **Page addresses** — every address that is not a real file is served `index.html`, so refreshing `/fleet` or opening a shared vehicle link works. Missing files under `/assets`, `/gallery` and `/vehicles` return a real 404.
+- **Security headers** on every response — a strict Content-Security-Policy (scripts only from this site; styles and fonts only from this site and Google Fonts; images only from this site), plus `X-Frame-Options: DENY`, `X-Content-Type-Options`, `Referrer-Policy`, `Strict-Transport-Security` and `Permissions-Policy`.
+- **Caching** — the hashed files in `/assets` are cached for a year; photographs for a day.
+
+**If you add anything loaded from another website** (an analytics script, a map embed, photos hosted elsewhere), add that website to the Content-Security-Policy in `vercel.json`, or the browser will block it.
+
+There are no logins, secret keys or environment variables: the site has no backend, so there is nothing to configure in the Vercel dashboard beyond importing the repository.
 
 ---
 
@@ -366,6 +382,8 @@ Not yet done: the site is a client-rendered SPA, so the hosting provider must be
 | Booking wizard, request slip, print | ✅ Complete |
 | Contact and vehicle enquiry forms | ✅ Complete (delivery by WhatsApp / email link) |
 | Production build | ✅ `npm run build` passes with 0 errors |
+| Vercel deployment config and security headers | ✅ `vercel.json` |
+| Dependency security check | ✅ `npm audit` reports 0 vulnerabilities |
 | Real contact details | ⏳ **Placeholders** — see section 14A |
 | Backend / stored requests | ⏳ Not built |
 

@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   brandName: "OX TOURS AND TRAVELS",
-  // Shown in the blackletter nameplate font, which must not be set in capitals.
+  // Shown in the condensed nameplate font (the stylesheet sets it in capitals).
   nameplate: "Ox Tours and Travels",
   nameplateShort: "Ox Tours",
   legalName: "Ox Tours & Travels Pvt. Ltd.",

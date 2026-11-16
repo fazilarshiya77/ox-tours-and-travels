@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { WhatsAppButton } from '../ui/WhatsAppButton';
 import { BackToTopButton } from './BackToTopButton';
+import { ErrorBoundary } from './ErrorBoundary';
 import { Footer } from './Footer';
 import { Masthead } from './Masthead';
 import { Navigation } from './Navigation';
@@ -28,7 +29,9 @@ export const AppLayout: React.FC = () => {
 
       {/* Keyed by path so each page fades in and starts with fresh state. */}
       <main id="main" key={pathname} className="page-enter flex-grow">
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
       </main>
 
       <Footer />

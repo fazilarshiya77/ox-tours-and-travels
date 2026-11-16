@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { BOOKING_STEPS, EMPTY_BOOKING } from '../data/bookingContent';
 import { validateStep, type BookingErrors } from '../lib/bookingValidation';
 import { findVehicle } from '../lib/fleet';
-import { hasErrors } from '../lib/validation';import type { BookingFormData, VehicleCategory } from '../types';
+import { hasErrors } from '../lib/validation';
+import type { BookingFormData, VehicleCategory } from '../types';
 
 /** Router state passed by the front-page booking desk and the vehicle cards. */
 export interface BookingLocationState {
