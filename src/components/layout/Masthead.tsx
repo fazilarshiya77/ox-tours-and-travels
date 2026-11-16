@@ -1,40 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SITE_CONFIG } from '../../data/siteConfig';
-import { ShieldCheck } from 'lucide-react';
+import { formatDateline } from '../../lib/dates';
 
-export const Masthead: React.FC = () => {
-  return (
-    <header className="bg-paper-warm border-b border-ink-black/15 select-none relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Newspaper Center Masthead Wordmark */}
-        <div className="text-center py-6 sm:py-8">
-          <Link to="/" className="group inline-block focus:outline-none">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black tracking-tighter text-ink-black uppercase transition-transform group-hover:scale-[1.008] duration-300">
-              {SITE_CONFIG.brandName}
-            </h1>
-          </Link>
+const Star: React.FC = () => (
+  <span aria-hidden="true" className="px-3 text-base sm:px-5">
+    ✱
+  </span>
+);
 
-          <p className="mt-2 text-xs sm:text-sm font-serif italic text-ink-muted tracking-widest uppercase">
-            &ldquo;{SITE_CONFIG.mastheadTagline}&rdquo;
-          </p>
-        </div>
+/** Nameplate between double rules, then a dateline: volume ✱ motto ✱ date. */
+export const Masthead: React.FC = () => (
+  <header className="print:hidden">
+    <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
+      <div className="rule-thick-thin mt-5 sm:mt-7" aria-hidden="true" />
 
-        {/* Clean Editorial Divider Row */}
-        <div className="py-2.5 border-t border-b-2 border-ink-black flex items-center justify-between text-[11px] sm:text-xs font-serif uppercase tracking-[0.22em] text-ink-black font-bold">
-          <span className="hidden md:inline text-ink-muted text-[10px] font-mono tracking-widest">
-            ESTD. FOR LUXURY ROADS
+      {/*
+        The nameplate is sized from the width of this box (cqw), not the screen,
+        so it always fits between the rules at any window width or browser zoom.
+      */}
+      <div className="overflow-hidden py-3 text-center [container-type:inline-size] sm:py-4">
+        <Link to="/" className="block" aria-label={`${SITE_CONFIG.brandName} — front page`}>
+          <span className="nameplate block whitespace-nowrap text-[min(10.6cqw,8rem)]">
+            {SITE_CONFIG.nameplate}
           </span>
-          <span className="mx-auto md:mx-0 text-center tracking-[0.25em]">
-            {SITE_CONFIG.editorialRow}
-          </span>
-          <span className="hidden md:flex items-center gap-1 text-ink-black text-[10px] font-mono font-bold tracking-widest">
-            <ShieldCheck className="w-3.5 h-3.5" /> CHAUFFEUR CERTIFIED
-          </span>
-        </div>
-
+        </Link>
       </div>
-    </header>
-  );
-};
+
+      <div className="rule-thin-thick" aria-hidden="true" />
+
+      {/* Dateline */}
+      <div className="flex items-center justify-center whitespace-nowrap py-2.5 font-sans text-[13px] font-bold uppercase tracking-[0.14em] sm:text-base">
+        <span className="hidden sm:inline">{SITE_CONFIG.volume}</span>
+        <span className="hidden sm:inline">
+          <Star />
+        </span>
+        <span className="hidden md:inline">{SITE_CONFIG.mastheadTagline}</span>
+        <span className="hidden md:inline">
+          <Star />
+        </span>
+        <time>{formatDateline()}</time>
+      </div>
+
+      <div className="rule-thick-thin" aria-hidden="true" />
+    </div>
+  </header>
+);

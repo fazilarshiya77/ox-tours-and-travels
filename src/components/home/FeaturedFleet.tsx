@@ -1,29 +1,28 @@
 import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { FLEET_DATA } from '../../data/fleetData';
-import { EditorialSectionHeader } from '../ui/EditorialSectionHeader';
-import { VehicleCard } from '../fleet/VehicleCard';
+import { VehicleGrid } from '../fleet/VehicleGrid';
+import { Button } from '../ui/Button';
+import { SectionHeader } from '../ui/SectionHeader';
+import { Reveal } from '../ui/Reveal';
 
-export const FeaturedFleet: React.FC = () => {
-  return (
-    <section className="py-20 bg-paper-warm border-b border-ink-black/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <EditorialSectionHeader
-          label="FLEET JOURNAL"
-          title="THE FLEET — CHOOSE YOUR RIDE"
-          subtitle="Precision-maintained automobiles and group touring cruisers, each curated for specific roadway topographies and passenger compliments."
-          number="01"
-        />
+/** Front-page fleet section: every vehicle, as a ruled listings grid. */
+export const FeaturedFleet: React.FC<{ className?: string }> = ({ className }) => (
+  <section className={className}>
+    <SectionHeader
+      kicker="The Fleet Journal"
+      folio="Section A"
+      title="The Fleet — Choose Your Ride"
+      deck="Carefully maintained vehicles for families, executives and large groups, each with a professional chauffeur."
+    />
 
-        {/* Clean, well-spaced vehicle grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {FLEET_DATA.map((vehicle) => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </div>
+    <VehicleGrid vehicles={FLEET_DATA} />
 
-      </div>
-    </section>
-  );
-};
+    <Reveal className="mt-8 text-center">
+      <Button to="/fleet" variant="secondary">
+        <span>Compare the Full Fleet</span>
+        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+      </Button>
+    </Reveal>
+  </section>
+);

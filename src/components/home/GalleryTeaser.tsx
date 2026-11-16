@@ -1,68 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Camera, Maximize2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { GALLERY_DATA } from '../../data/galleryData';
-import { EditorialSectionHeader } from '../ui/EditorialSectionHeader';
 import { Button } from '../ui/Button';
+import { NewsPhoto } from '../ui/NewsPhoto';
+import { SectionHeader } from '../ui/SectionHeader';
+import { Reveal, stagger } from '../ui/Reveal';
 
-export const GalleryTeaser: React.FC = () => {
-  const previewItems = GALLERY_DATA.slice(0, 4);
+const PREVIEW = GALLERY_DATA.slice(0, 4);
 
-  return (
-    <section className="py-20 bg-paper-warm/50 border-b border-ink-black/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <EditorialSectionHeader
-          label="LATEST VISUAL ARCHIVES"
-          title="THE ROAD CHRONICLE IN PICTURES"
-          subtitle="Recent photographic dispatches from our luxury touring machines, executive interiors, and expeditions."
-          number="03"
-        />
+/** Front-page gallery preview. Each photo opens the gallery with that photograph enlarged. */
+export const GalleryTeaser: React.FC<{ className?: string }> = ({ className }) => (
+  <section className={className}>
+    <SectionHeader
+      kicker="In Pictures"
+      folio="Section B"
+      title="The Road Chronicle in Pictures"
+      deck="Recent photographs of our touring vehicles and their cabins."
+    />
 
-        {/* 4-Item Visual Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {previewItems.map((item) => (
-            <Link
-              key={item.id}
-              to="/gallery"
-              className="glossy-card rounded-lg overflow-hidden group flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-            >
-              {/* Full Color Image */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-black/5">
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded-sm text-[9px] font-mono font-bold uppercase tracking-wider text-white z-20">
-                  {item.category}
-                </div>
-              </div>
+    <ul className="grid grid-cols-2 gap-x-5 gap-y-8 lg:grid-cols-4">
+      {PREVIEW.map((photo, i) => (
+        <Reveal as="li" key={photo.id} delay={stagger(i, 4)}>
+          <Link
+            to="/gallery"
+            state={{ openPhotoId: photo.id }}
+            className="group block"
+            aria-label={`View photograph: ${photo.title}`}
+          >
+            <NewsPhoto
+              src={photo.imageUrl}
+              alt={photo.title}
+              imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <p className="mt-2 flex items-baseline justify-between gap-3 border-b border-paper-rule pb-2">
+              <span className="kicker">{photo.category}</span>
+              <span className="folio group-hover:text-ink-black">Enlarge</span>
+            </p>
+          </Link>
+        </Reveal>
+      ))}
+    </ul>
 
-              {/* Just "VIEW FULLSCREEN" Option */}
-              <div className="p-3.5 bg-white flex items-center justify-between text-xs font-mono border-t border-ink-black/10 group-hover:bg-ink-black group-hover:text-white transition-colors">
-                <span className="font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <Maximize2 className="w-3.5 h-3.5" />
-                  <span>VIEW FULLSCREEN</span>
-                </span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* Section Footer Link */}
-        <div className="mt-10 text-center">
-          <Button to="/gallery" variant="outline" size="md">
-            <Camera className="w-4 h-4 mr-1.5" />
-            <span>EXPLORE FULL PHOTOGRAPHIC GALLERY</span>
-            <ArrowUpRight className="w-4 h-4 ml-1" />
-          </Button>
-        </div>
-
-      </div>
-    </section>
-  );
-};
+    <Reveal className="mt-8 text-center">
+      <Button to="/gallery" variant="secondary">
+        <span>See All {GALLERY_DATA.length} Photographs</span>
+        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+      </Button>
+    </Reveal>
+  </section>
+);

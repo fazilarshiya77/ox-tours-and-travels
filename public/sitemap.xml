@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://oxtoursandtravels.com/</loc>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
@@ -10,6 +10,14 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url><loc>https://oxtoursandtravels.com/fleet/innova-crysta</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/tempo-traveller-9-seater</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/tempo-traveller-12-seater-luxury</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/tempo-traveller-17-seater</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/luxury-bus-21-seater</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/force-urbania-9-seater-luxury</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/force-urbania-12-seater-luxury</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://oxtoursandtravels.com/fleet/force-urbania-16-seater-luxury</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url>
     <loc>https://oxtoursandtravels.com/gallery</loc>
     <changefreq>weekly</changefreq>
@@ -27,7 +35,7 @@
   </url>
   <url>
     <loc>https://oxtoursandtravels.com/book</loc>
-    <changefreq>daily</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 </urlset>

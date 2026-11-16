@@ -1,102 +1,61 @@
 import React from 'react';
 import { Search, SlidersHorizontal, Users } from 'lucide-react';
 import { VEHICLE_CATEGORIES } from '../../data/fleetData';
+import type { CapacityFilter, FleetFilters, FleetSort } from '../../hooks/useFleetFilters';
+import { FilterPills } from '../ui/FilterPills';
+import { SelectField, TextField } from '../ui/FormFields';
+import { Reveal } from '../ui/Reveal';
 
 interface FleetFilterBarProps {
-  selectedCategory: string;
-  onSelectCategory: (category: string) => void;
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
-  selectedCapacity: string;
-  onCapacityChange: (capacity: string) => void;
-  sortBy: string;
-  onSortChange: (sort: string) => void;
+  filters: FleetFilters;
+  onChange: <K extends keyof FleetFilters>(key: K, value: FleetFilters[K]) => void;
 }
 
-export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({
-  selectedCategory,
-  onSelectCategory,
-  searchQuery,
-  onSearchChange,
-  selectedCapacity,
-  onCapacityChange,
-  sortBy,
-  onSortChange,
-}) => {
-  return (
-    <div className="glossy-card rounded-lg p-6 mb-10 shadow-sm">
-      
-      {/* Category Filter Pills */}
-      <div className="border-b border-ink-black/10 pb-4 mb-5">
-        <span className="block text-[11px] font-mono uppercase tracking-wider font-bold text-ink-muted mb-3">
-          FILTER BY CATEGORY
-        </span>
-        <div className="flex flex-wrap gap-2">
-          {VEHICLE_CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => onSelectCategory(cat)}
-              className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider rounded-sm transition-all ${
-                selectedCategory === cat
-                  ? 'glossy-btn-black text-white shadow-sm font-bold'
-                  : 'bg-paper-warm text-ink-charcoal border border-ink-black/15 hover:border-ink-black hover:bg-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
+/** Catalogue controls: category pills, keyword search, group size and sort order. */
+export const FleetFilterBar: React.FC<FleetFilterBarProps> = ({ filters, onChange }) => (
+  <Reveal className="border-y border-ink-black py-5">
+    <FilterPills
+      label="Vehicle type"
+      options={VEHICLE_CATEGORIES}
+      value={filters.category}
+      onChange={(value) => onChange('category', value)}
+    />
 
-      {/* Search, Capacity Filter, and Sorting Controls */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-center">
-        
-        {/* Search Bar (5 cols) */}
-        <div className="lg:col-span-5 relative">
-          <Search className="w-4 h-4 text-ink-muted absolute left-3 top-3 pointer-events-none" />
-          <input
-            type="text"
-            placeholder="Search vehicle model, category, feature..."
-            value={searchQuery}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-sans bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none focus:ring-1 focus:ring-ink-black transition-colors shadow-sm"
-          />
-        </div>
-
-        {/* Capacity Filter (4 cols) */}
-        <div className="lg:col-span-4 relative">
-          <Users className="w-4 h-4 text-ink-muted absolute left-3 top-3 pointer-events-none" />
-          <select
-            value={selectedCapacity}
-            onChange={(e) => onCapacityChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
-          >
-            <option value="all">Any Passenger Capacity</option>
-            <option value="1-7">Family & Executive (Up to 7 Pax)</option>
-            <option value="8-12">Medium Group (8 to 12 Pax)</option>
-            <option value="13-17">Large Group (13 to 17 Pax)</option>
-            <option value="18+">Grand Touring Coach (18+ Pax)</option>
-          </select>
-        </div>
-
-        {/* Sorting Dropdown (3 cols) */}
-        <div className="lg:col-span-3 relative">
-          <SlidersHorizontal className="w-4 h-4 text-ink-muted absolute left-3 top-3 pointer-events-none" />
-          <select
-            value={sortBy}
-            onChange={(e) => onSortChange(e.target.value)}
-            className="w-full pl-9 pr-3 py-2.5 text-xs font-mono uppercase bg-white rounded-sm border border-ink-black/20 focus:border-ink-black focus:outline-none appearance-none cursor-pointer shadow-sm"
-          >
-            <option value="featured">Sort: Featured Tier</option>
-            <option value="capacity-asc">Capacity: Low to High</option>
-            <option value="capacity-desc">Capacity: High to Low</option>
-            <option value="name-asc">Alphabetical: A to Z</option>
-          </select>
-        </div>
-
-      </div>
-
+    <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12">
+      <TextField
+        containerClassName="sm:col-span-2 lg:col-span-6"
+        label="Search"
+        icon={Search}
+        type="search"
+        placeholder="Model, type or feature"
+        value={filters.query}
+        onChange={(e) => onChange('query', e.target.value)}
+      />
+      <SelectField
+        containerClassName="lg:col-span-3"
+        label="Group size"
+        icon={Users}
+        value={filters.capacity}
+        onChange={(e) => onChange('capacity', e.target.value as CapacityFilter)}
+      >
+        <option value="all">Any size</option>
+        <option value="1-7">Up to 7 guests</option>
+        <option value="8-12">8 to 12 guests</option>
+        <option value="13-17">13 to 17 guests</option>
+        <option value="18+">18 guests or more</option>
+      </SelectField>
+      <SelectField
+        containerClassName="lg:col-span-3"
+        label="Sort by"
+        icon={SlidersHorizontal}
+        value={filters.sort}
+        onChange={(e) => onChange('sort', e.target.value as FleetSort)}
+      >
+        <option value="featured">Featured</option>
+        <option value="capacity-asc">Seats: fewest first</option>
+        <option value="capacity-desc">Seats: most first</option>
+        <option value="name-asc">Name: A to Z</option>
+      </SelectField>
     </div>
-  );
-};
+  </Reveal>
+);

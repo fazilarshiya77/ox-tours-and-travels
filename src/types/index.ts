@@ -1,12 +1,8 @@
-export type VehicleCategory = 
+export type VehicleCategory =
   | 'Innova Crysta'
   | 'Tempo Traveller'
   | 'Force Urbania'
-  | 'Luxury Bus / Coach'
-  | 'Sedan' 
-  | 'SUV' 
-  | 'Innova / Premium MUV' 
-  | 'Mini Bus / Coach';
+  | 'Luxury Bus / Coach';
 
 export interface Vehicle {
   id: string;
@@ -40,6 +36,47 @@ export interface Vehicle {
     alt: string;
   };
 }
+
+export type TripType = 'outstation' | 'local' | 'airport' | 'package';
+
+export type ReplyPreference = 'whatsapp' | 'phone' | 'email';
+
+export interface BookingFormData {
+  tripType: TripType;
+  pickupLocation: string;
+  dropoffLocation: string;
+  pickupDate: string;
+  returnDate: string;
+  pickupTime: string;
+  vehicleCategory: VehicleCategory | '';
+  preferredVehicleId: string;
+  passengers: number;
+  luggageCount: number;
+  specialRequests: string;
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  communicationPreference: ReplyPreference;
+}
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  serviceInterest: string;
+  message: string;
+}
+
+export interface VehicleEnquiryData {
+  name: string;
+  phone: string;
+  pickupCity: string;
+  dates: string;
+  message: string;
+}
+
+/* ---- Content models kept for the archived destination / services / testimonial data ---- */
 
 export interface Destination {
   id: string;
@@ -79,37 +116,10 @@ export interface ServiceItem {
 export interface Testimonial {
   id: string;
   quote: string;
-  dispatchType: string; // e.g. "FAMILY VACATION DISPATCH", "CORPORATE TRAVEL LOG"
+  dispatchType: string;
   passengerInitials: string;
   cityOrRoute: string;
   vehicleExperienced: string;
   datePlaceholder: string;
   editorialNote: string;
-}
-
-export interface BookingFormData {
-  tripType: 'outstation' | 'local' | 'airport' | 'package';
-  pickupLocation: string;
-  dropoffLocation: string;
-  pickupDate: string;
-  returnDate: string;
-  pickupTime: string;
-  vehicleCategory: VehicleCategory | '';
-  preferredVehicleId?: string;
-  passengers: number;
-  luggageCount: number;
-  specialRequests: string;
-  fullName: string;
-  phoneNumber: string;
-  email: string;
-  communicationPreference: 'whatsapp' | 'phone' | 'email';
-}
-
-export interface ContactFormData {
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-  serviceInterest?: string;
 }

@@ -1,109 +1,63 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Briefcase, ArrowUpRight, ShieldCheck, Fuel } from 'lucide-react';
-import { Vehicle } from '../../types';
+import { Briefcase, ShieldCheck, Users } from 'lucide-react';
+import type { BookingLocationState } from '../../hooks/useBookingForm';
+import type { Vehicle } from '../../types';
 import { Button } from '../ui/Button';
+import { NewsPhoto } from '../ui/NewsPhoto';
 
-interface VehicleCardProps {
-  vehicle: Vehicle;
-  onEnquire?: (vehicle: Vehicle) => void;
-}
+/** One vehicle as a newspaper listing: photo, kicker, headline, key facts and two actions. */
+export const VehicleCard: React.FC<{ vehicle: Vehicle }> = ({ vehicle }) => {
+  const detailPath = `/fleet/${vehicle.id}`;
+  const bookingState: BookingLocationState = { preselectedVehicle: vehicle.id };
 
-export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle, onEnquire }) => {
   return (
-    <article className="glossy-card rounded-lg overflow-hidden flex flex-col justify-between group">
-      <div>
-        {/* Vehicle Image Container */}
-        <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
-          <img
-            src={vehicle.images.main}
-            alt={vehicle.images.alt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            loading="lazy"
-          />
+    <article className="group flex h-full flex-col p-5 sm:p-6">
+      <Link to={detailPath} tabIndex={-1} className="block">
+        <NewsPhoto
+          src={vehicle.images.main}
+          alt={vehicle.images.alt}
+          imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </Link>
 
-          {/* Category Stamp Badge */}
-          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md border border-black/20 px-2.5 py-1 rounded-sm text-[11px] font-mono font-bold uppercase tracking-wider text-black shadow-sm z-20">
-            {vehicle.category}
-          </div>
-
-          {/* Availability Status */}
-          <div className="absolute top-3 right-3 z-20">
-            <span className="px-2.5 py-0.5 text-[10px] font-mono uppercase font-bold rounded-sm bg-black/85 text-white border border-white/20 backdrop-blur-sm">
-              {vehicle.availabilityStatus}
-            </span>
-          </div>
-
-          {/* Capacity Badges in Bottom Bar */}
-          <div className="absolute bottom-3 left-3 flex gap-2 z-20">
-            <span className="bg-black/90 text-white text-xs font-mono px-2.5 py-1 rounded-sm flex items-center gap-1.5 border border-white/10 shadow-sm">
-              <Users className="w-3.5 h-3.5 text-white" />
-              <span>{vehicle.passengerCapacity} Seater</span>
-            </span>
-            <span className="bg-black/90 text-white text-xs font-mono px-2.5 py-1 rounded-sm flex items-center gap-1.5 border border-white/10 shadow-sm">
-              <Briefcase className="w-3.5 h-3.5 text-white" />
-              <span>{vehicle.luggageCapacity} Bags</span>
-            </span>
-          </div>
-        </div>
-
-        {/* Card Body */}
-        <div className="p-6">
-          <h3 className="text-xl sm:text-2xl font-serif font-black text-ink-black group-hover:text-black transition-colors uppercase tracking-tight">
-            <Link to={`/fleet/${vehicle.id}`}>
-              {vehicle.name}
-            </Link>
-          </h3>
-
-          <p className="font-serif italic text-xs text-ink-muted mt-1">
-            &ldquo;{vehicle.tagline}&rdquo;
-          </p>
-
-          <p className="mt-3 text-xs sm:text-sm text-ink-muted leading-relaxed font-sans line-clamp-2">
-            {vehicle.shortDescription}
-          </p>
-
-          {/* Key Specs Pills */}
-          <div className="mt-4 pt-4 border-t border-ink-black/10 flex flex-wrap gap-4 text-xs font-mono text-ink-charcoal">
-            <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-ink-black" />
-              <span>Chauffeur Driven</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Fuel className="w-4 h-4 text-ink-black" />
-              <span>{vehicle.specs.fuelType.split('/')[0]}</span>
-            </div>
-          </div>
-
-          {/* Pricing Box */}
-          <div className="mt-4 p-3 bg-paper-warm rounded-sm border border-ink-black/10 flex items-center justify-between text-xs">
-            <span className="font-mono text-[11px] uppercase text-ink-muted font-bold">ESTIMATED TARIFF:</span>
-            <span className="font-serif font-black text-sm text-ink-black">{vehicle.pricingPlaceholder.indicativeRate}</span>
-          </div>
-        </div>
+      <div className="mt-4 flex items-baseline justify-between gap-3">
+        <p className="kicker">{vehicle.category}</p>
+        <p className="folio shrink-0">{vehicle.availabilityStatus}</p>
       </div>
 
-      {/* Action Buttons */}
-      <div className="p-6 pt-0 flex items-center gap-3">
-        <Button 
-          to={`/fleet/${vehicle.id}`} 
-          variant="outline" 
-          size="sm" 
-          className="flex-1"
-        >
-          <span>VIEW DETAILS</span>
-          <ArrowUpRight className="w-3 h-3 ml-0.5" />
-        </Button>
+      <h3 className="mt-2 text-2xl font-black leading-tight">
+        <Link to={detailPath} className="decoration-2 underline-offset-4 hover:underline">
+          {vehicle.name}
+        </Link>
+      </h3>
+      <p className="deck mt-1.5 line-clamp-2 text-base">{vehicle.tagline}</p>
 
-        <Button 
-          to="/book" 
-          state={{ preselectedVehicle: vehicle.id }}
-          variant="primary" 
-          size="sm" 
-          className="flex-1"
-          onClick={() => onEnquire && onEnquire(vehicle)}
-        >
-          <span>ENQUIRE NOW</span>
+      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 border-y border-paper-rule py-2 font-sans text-xs font-semibold text-ink-charcoal">
+        <li className="flex items-center gap-1.5">
+          <Users className="h-3.5 w-3.5" aria-hidden="true" /> {vehicle.passengerCapacity} seats
+        </li>
+        <li className="flex items-center gap-1.5">
+          <Briefcase className="h-3.5 w-3.5" aria-hidden="true" /> {vehicle.luggageCapacity} bags
+        </li>
+        <li className="flex items-center gap-1.5">
+          <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" /> Chauffeur driven
+        </li>
+      </ul>
+
+      <p className="mt-3 line-clamp-3 flex-1 text-base leading-relaxed text-ink-charcoal">{vehicle.shortDescription}</p>
+
+      <p className="mt-4 flex items-baseline justify-between gap-3">
+        <span className="folio">Tariff</span>
+        <span className="font-serif text-base font-bold">{vehicle.pricingPlaceholder.indicativeRate}</span>
+      </p>
+
+      <div className="mt-4 grid grid-cols-2 gap-3">
+        <Button to={detailPath} variant="secondary" size="sm">
+          Details
+        </Button>
+        <Button to="/book" state={bookingState} size="sm">
+          Enquire
         </Button>
       </div>
     </article>

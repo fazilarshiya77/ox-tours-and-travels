@@ -7,44 +7,41 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Aged newsprint
         paper: {
-          warm: '#F5F0E6',
-          white: '#FAF7F0',
-          aged: '#ECE4D4',
-          tan: '#DFD5C2',
-          rule: '#D6CCB8',
+          warm: '#F4EBD8',   // page stock
+          white: '#FBF6E9',  // form fields, raised panels
+          aged: '#E9DDC2',   // tinted blocks, photo placeholders
+          rule: '#CDBF9F',   // hairline column and row rules
         },
+        // Warm printing ink
         ink: {
-          black: '#0A0A0A',
-          charcoal: '#1A1A1A',
-          deep: '#141414',
-          muted: '#5A5A5A',
-          grey: '#767676',
-          light: '#9E9E9E',
+          black: '#2A2124',
+          charcoal: '#3A3033',
+          muted: '#625659',
+          light: '#9C917C',
         },
-        vintage: {
-          red: '#171717', // High-fashion monochrome primary
-          accent: '#8C1D18', // Tasteful deep ruby collector accent when needed
-          silver: '#E2E8F0',
-          chrome: '#F1F5F9',
-        }
+        // Spot colour, used sparingly for kickers and errors
+        press: {
+          DEFAULT: '#9A1B1B',
+          dark: '#7A1414',
+        },
+        whatsapp: '#1F8F4E',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', '"Times New Roman"', 'serif'],
-        display: ['"Bodoni Moda"', '"Playfair Display"', 'Georgia', 'serif'],
-        sans: ['Inter', '"DM Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"JetBrains Mono"', '"Courier New"', 'monospace'],
+        // Nameplate: huge condensed heavy sans, as on a front page
+        nameplate: ['Anton', 'Impact', '"Arial Narrow"', 'sans-serif'],
+        // Headlines (set in capitals), decks, pull quotes
+        serif: ['"Libre Caslon Text"', 'Georgia', '"Times New Roman"', 'serif'],
+        // Body copy and form text
+        body: ['"Libre Caslon Text"', 'Georgia', '"Times New Roman"', 'serif'],
+        // Subheads, kickers, dateline, labels, buttons, navigation: condensed bold
+        sans: ['"Barlow Condensed"', '"Arial Narrow"', 'Arial', 'sans-serif'],
+        mono: ['"Courier Prime"', '"Courier New"', 'monospace'],
       },
-      boxShadow: {
-        'glossy': '0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-        'glossy-lg': '0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 0 1px 1px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9)',
-        'glossy-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        'editorial': '3px 3px 0px #0A0A0A',
+      maxWidth: {
+        page: '76rem',
       },
-      backgroundImage: {
-        'glossy-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%)',
-        'sheen': 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)',
-      }
     },
   },
   plugins: [],

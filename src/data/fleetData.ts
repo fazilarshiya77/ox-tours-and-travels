@@ -1,12 +1,17 @@
-import { Vehicle } from '../types';
+import { Vehicle, VehicleCategory } from '../types';
 
-export const VEHICLE_CATEGORIES: string[] = [
-  'All Vehicles',
+export const ALL_VEHICLES = 'All Vehicles';
+
+/** The bookable vehicle types, in display order. */
+export const FLEET_CATEGORIES: VehicleCategory[] = [
   'Innova Crysta',
   'Tempo Traveller',
   'Force Urbania',
   'Luxury Bus / Coach'
 ];
+
+/** Filter options for the catalogue: "All Vehicles" plus every category. */
+export const VEHICLE_CATEGORIES: string[] = [ALL_VEHICLES, ...FLEET_CATEGORIES];
 
 export const FLEET_DATA: Vehicle[] = [
   {
@@ -48,13 +53,9 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(1).jpeg',
-      gallery: [
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(1).jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.25%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.24%20PM%20(2).jpeg'
-      ],
+      // No photograph supplied yet: leave empty and the site shows a 'photo coming soon' frame.
+      main: '',
+      gallery: [],
       alt: 'Toyota Innova Crysta - Ox Tours and Travels fleet'
     }
   },
@@ -97,13 +98,9 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.16%20PM.jpeg',
-      gallery: [
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.16%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.18%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM%20(1).jpeg'
-      ],
+      // No photograph supplied yet: leave empty and the site shows a 'photo coming soon' frame.
+      main: '',
+      gallery: [],
       alt: '9 Seater Tempo Traveller - Ox Tours and Travels fleet'
     }
   },
@@ -146,12 +143,9 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.23%20PM.jpeg',
-      gallery: [
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.23%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM%20(1).jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.22%20PM.jpeg'
-      ],
+      // No photograph supplied yet: leave empty and the site shows a 'photo coming soon' frame.
+      main: '',
+      gallery: [],
       alt: '12 Seater Luxury Tempo Traveller - Ox Tours and Travels fleet'
     }
   },
@@ -194,12 +188,9 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM%20(1).jpeg',
-      gallery: [
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.26%20PM%20(1).jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.17%20PM%20(1).jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.22%20PM%20(1).jpeg'
-      ],
+      // No photograph supplied yet: leave empty and the site shows a 'photo coming soon' frame.
+      main: '',
+      gallery: [],
       alt: '17 Seater Tempo Traveller - Ox Tours and Travels fleet'
     }
   },
@@ -242,12 +233,9 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.32%20PM.jpeg',
-      gallery: [
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.32%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.33%20PM.jpeg',
-        '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.33%20PM%20(1).jpeg'
-      ],
+      // No photograph supplied yet: leave empty and the site shows a 'photo coming soon' frame.
+      main: '',
+      gallery: [],
       alt: '21 Seater Luxury Bus - Ox Tours and Travels fleet'
     }
   },
@@ -290,8 +278,13 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.37%20PM.jpeg',
+      main: '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.48%20PM.jpeg',
       gallery: [
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.48%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.47%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.43%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.46%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.49%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.37%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.19%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.36%20PM.jpeg',
@@ -339,8 +332,13 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
+      main: '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.47%20PM.jpeg',
       gallery: [
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.47%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.48%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.43%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.46%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.49%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.39%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
@@ -388,8 +386,13 @@ export const FLEET_DATA: Vehicle[] = [
     },
     availabilityStatus: 'Available',
     images: {
-      main: '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
+      main: '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.43%20PM.jpeg',
       gallery: [
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.43%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.47%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.48%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.46%20PM.jpeg',
+        '/vehicles/WhatsApp%20Image%202026-11-16%20at%2012.24.49%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.21%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.38%20PM.jpeg',
         '/gallery/WhatsApp%20Image%202026-11-14%20at%207.53.20%20PM.jpeg'
